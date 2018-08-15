@@ -1,10 +1,10 @@
-//package annette.bpm.process.actor.operation
+//package sphera.bpm.process.actor.operation
 //
 //import akka.actor.{ Actor, ActorRef }
 //import akka.testkit.{ TestKit, TestProbe }
-//import annette.bpm.process.Operation
-//import annette.bpm.process.Process
-//import annette.core.test.PersistenceSpec
+//import sphera.bpm.process.Operation
+//import sphera.bpm.process.Process
+//import sphera.core.test.PersistenceSpec
 //import org.scalatest._
 //
 //import scala.concurrent.Future

@@ -28,7 +28,7 @@ class DefStorageBuilderSpec extends TestKit(ActorSystem("DefStorageBuilder")) wi
       "build" in {
         val data = Json.obj(
           "value" -> Json.obj(
-            "phone" -> Json.obj("value" -> "+79163333333".asJson)))
+            "phone" -> Json.obj("value" -> "+7".asJson)))
         for {
           r1 <- newDefStorageBuilder()
           r2 <- r1.build(processDataStructureId, data)

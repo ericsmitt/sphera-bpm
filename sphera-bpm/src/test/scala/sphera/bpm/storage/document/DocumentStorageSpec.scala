@@ -11,7 +11,7 @@ class DocumentStorageSpec extends TestKit(ActorSystem("DocumentStorageSpec")) wi
     "getDocument" in {
       val data = Json.obj(
         "value" -> Json.obj(
-          "phone" -> Json.obj("value" -> "+79163333331".asJson)))
+          "phone" -> Json.obj("value" -> "+79169163333331".asJson)))
       for {
         r1 <- newBpm()
         r2 <- newDefStorageBuilder(r1).build(processDataStructureId, data)

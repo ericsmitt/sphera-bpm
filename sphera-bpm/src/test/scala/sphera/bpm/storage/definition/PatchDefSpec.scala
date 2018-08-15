@@ -11,7 +11,7 @@ class PatchDefSpec extends TestKit(ActorSystem("PatchDefSpec")) with NewStorageM
     "patchDef" in {
       val data = Json.obj(
         "value" -> Json.obj(
-          "phone" -> Json.obj("value" -> "+79163333333".asJson)))
+          "phone" -> Json.obj("value" -> "+7".asJson)))
       for {
         r1 <- newBpm()
         r2 <- newDefStorageBuilder(r1).build(processDataStructureId, data)

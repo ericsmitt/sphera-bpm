@@ -53,7 +53,7 @@
     "phone" : {
       "name" : "phone",
       "description" : null,
-      "value" : "+79166610067",
+      "value" : "+7",
       "path" : "phone",
       "type" : "string"
     },

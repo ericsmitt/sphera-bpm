@@ -1,8 +1,8 @@
-//package annette.bpm.process.actor.operation
+//package sphera.bpm.process.actor.operation
 //
 //import akka.actor.ActorSystem
 //import akka.testkit.TestKit
-//import annette.core.test.PersistenceSpec
+//import sphera.core.test.PersistenceSpec
 //
 //class ParallelGatewayOperationActorSpec extends TestKit(ActorSystem("ParallelGatewayOperationActorSpec"))
 //  with PersistenceSpec

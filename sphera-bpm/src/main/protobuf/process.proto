@@ -1,0 +1,165 @@
+syntax = "proto2";
+
+import "exceptions.proto";
+import "definition.proto";
+import "model.proto";
+import "lang.proto";
+
+package bpm;
+
+option java_package = "sphera.bpm.serializer.proto";
+
+message ProcessManagerStateV1 {
+    map<string, ProcessInfoV1> v = 1;
+}
+
+message CreatedProcessInfoEvtV1 {
+    required ProcessInfoV1 x = 1;
+}
+
+message UpdatedProcessInfoEvtV1 {
+    required UpdateProcessInfoV1 x = 1;
+    required ModifierV1 modifier = 2;
+}
+
+message DeletedProcessInfoEvtV1 {
+    required string processId = 1;
+}
+
+message ProcessStateV1 {
+    required ProcessDefinitionV1 processDefinition = 1;
+    map<string, RoleDefinitionV1> roleDefinitions = 2;
+    required DefinitionsV1 definitions = 3;
+    repeated string activeOperations = 4;
+    repeated BpmExceptionV1 exceptions = 5;
+}
+
+message ActivatedEvtV1 {
+    required string to = 1;
+    optional string from = 2;
+}
+
+message ProcessDefinitionV1 {
+    map<string, RoleDefinitionV1> roleDefinitions = 1;
+    required DefinitionsV1 definitions = 2;
+    repeated OperationV1 operations = 3;
+}
+
+message ProcessInfoV1 {
+    required string id = 1;
+    required string name = 2;
+    optional string description = 3;
+    required int32 status = 4;
+    required string bpmId = 5;
+    required string templateId = 6;
+    required string managerId = 7;
+    optional ModifierV1 startedBy = 8;
+    optional string startedOn = 9;
+    required ModifyAttrV1 modifyAttr = 10;
+}
+
+message UpdateProcessInfoV1 {
+    required string id = 1;
+    optional string name = 2;
+    optional string description = 3;
+    optional int32 status = 4;
+    optional string managerId = 5;
+    optional ModifierV1 startedBy = 6;
+    optional string startedOn = 7;
+}
+
+message ProcessExtendedInfoV1 {
+    required ProcessInfoV1 info = 1;
+    required ProcessStateV1 state = 2;
+}
+
+message OperationV1 {
+    oneof Operation_oneof {
+        StartOperationV1 opt1 = 1;
+        EndOperationV1 opt2 = 2;
+        ParallelGatewayOperationV1 opt3 = 3;
+        ExclusiveGatewayOperationV1 opt4 = 4;
+        ScriptTaskOperationV1 opt5 = 5;
+        MailOperationV1 opt6 = 6;
+        UserTaskOperationV1 opt7 = 7;
+    }
+}
+
+message StartOperationV1 {
+    required string bpmId = 1;
+    required string name = 2;
+    repeated string outgoings = 3;
+}
+
+message EndOperationV1 {
+    required string bpmId = 1;
+    required string name = 2;
+}
+
+message ParallelGatewayOperationV1 {
+     required string bpmId = 1;
+     required string name = 2;
+     repeated string incomings = 3;
+     repeated string outgoings = 4;
+}
+
+message ExclusiveGatewayOperationV1 {
+    required string bpmId = 1;
+    required string name = 2;
+    repeated BranchV1 conditions = 3;
+}
+
+message BranchV1 {
+    oneof Branch_oneof {
+        CaseBranchV1 opt1 = 1;
+        OtherwiseBranchV1 opt2 = 2;
+    }
+}
+
+message CaseBranchV1 {
+    required string desc = 1;
+    required ExpressionV1 expression = 2;
+    required string operation = 3;
+}
+
+message OtherwiseBranchV1 {
+    required string desc = 1;
+    required string operation = 2;
+}
+
+message ScriptTaskOperationV1 {
+    required string bpmId = 1;
+    required string name = 2;
+    repeated AssignmentV1 assignments = 3;
+    required string outgoing = 4;
+}
+
+message AssignmentV1 {
+    required string path = 1;
+    required ExpressionV1 expr = 2;
+}
+
+message MailOperationV1 {
+    required string bpmId = 1;
+    required string name = 2;
+    repeated ExpressionV1 addresses = 3;
+    required ExpressionV1 subject = 4;
+    required ExpressionV1 message = 5;
+    required string outgoing = 6;
+}
+
+message UserTaskOperationV1 {
+    required string bpmId = 1;
+    required string name = 2;
+    required string role = 3;
+    required string ownerId = 4;
+    optional string assigneeId = 5;
+    optional string reviewerId = 6;
+    repeated string watcherIds = 7;
+    required string nextOperationBpmId = 8;
+    required string formTemplateId = 9;
+    optional string plannedStart = 10;
+    optional int64 plannedDuration = 11;
+    repeated AssignmentV1 importAssignments = 12;
+    repeated AssignmentV1 exportAssignments = 13;
+}

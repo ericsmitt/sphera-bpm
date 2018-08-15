@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                   xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                   xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                   id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn"
+                   xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+ <bpmn2:process id="Process_1" isExecutable="false">
+  <bpmn2:startEvent id="Start" name="Начало процесса">
+   <bpmn2:outgoing>SequenceFlow_0i48jnx</bpmn2:outgoing>
+  </bpmn2:startEvent>
+  <bpmn2:sequenceFlow id="SequenceFlow_0i48jnx" sourceRef="Start" targetRef="EnterData"/>
+
+  <bpmn2:userTask id="EnterData" name="Ввод анкеты">
+   <bpmn2:documentation>documentation field</bpmn2:documentation>
+   <bpmn2:incoming>SequenceFlow_0i48jnx</bpmn2:incoming>
+   <bpmn2:outgoing>SequenceFlow_1788u5t</bpmn2:outgoing>
+  </bpmn2:userTask>
+
+  <bpmn2:exclusiveGateway id="Switch" name="Ветвление по результатам проверки" default="RejectFlow">
+   <bpmn2:incoming>SequenceFlow_17h8rue</bpmn2:incoming>
+   <bpmn2:outgoing>AcceptFlow</bpmn2:outgoing>
+   <bpmn2:outgoing>RejectFlow</bpmn2:outgoing>
+  </bpmn2:exclusiveGateway>
+
+  <bpmn2:sequenceFlow id="AcceptFlow" name="Регистрация" sourceRef="Switch" targetRef="AcceptPreparation"/>
+  <bpmn2:sequenceFlow id="RejectFlow" name="Отказ" sourceRef="Switch" targetRef="RejectPreparation"/>
+  <bpmn2:sequenceFlow id="SequenceFlow_1788u5t" sourceRef="EnterData" targetRef="Fork"/>
+
+  <bpmn2:parallelGateway id="Fork" name="Ветвление">
+   <bpmn2:incoming>SequenceFlow_1788u5t</bpmn2:incoming>
+   <bpmn2:outgoing>SequenceFlow_1a9y6xm</bpmn2:outgoing>
+   <bpmn2:outgoing>SequenceFlow_1oxge9f</bpmn2:outgoing>
+  </bpmn2:parallelGateway>
+
+  <bpmn2:sequenceFlow id="SequenceFlow_1a9y6xm" sourceRef="Fork" targetRef="AckPreparation"/>
+  <bpmn2:sequenceFlow id="SequenceFlow_0lmsjus" sourceRef="AckPreparation" targetRef="SendAck"/>
+
+  <bpmn2:sendTask id="SendAck" name="Отправка подтверждения">
+   <bpmn2:incoming>SequenceFlow_0lmsjus</bpmn2:incoming>
+   <bpmn2:outgoing>SequenceFlow_1lknq96</bpmn2:outgoing>
+  </bpmn2:sendTask>
+
+  <bpmn2:userTask id="Validation" name="Проверка анкеты">
+   <bpmn2:incoming>SequenceFlow_1oxge9f</bpmn2:incoming>
+   <bpmn2:outgoing>SequenceFlow_0u1pgc6</bpmn2:outgoing>
+  </bpmn2:userTask>
+
+  <bpmn2:sequenceFlow id="SequenceFlow_1oxge9f" sourceRef="Fork" targetRef="Validation"/>
+  <bpmn2:sequenceFlow id="SequenceFlow_0gpxbql" sourceRef="AcceptPreparation" targetRef="SendAccept"/>
+
+  <bpmn2:sendTask id="SendAccept" name="Отправка подтверждения регистрации">
+   <bpmn2:incoming>SequenceFlow_0gpxbql</bpmn2:incoming>
+   <bpmn2:outgoing>SequenceFlow_0hv7c81</bpmn2:outgoing>
+  </bpmn2:sendTask>
+
+  <bpmn2:sequenceFlow id="SequenceFlow_1yymhp1" sourceRef="RejectPreparation" targetRef="SendReject"/>
+
+  <bpmn2:sendTask id="SendReject" name="Отправка отказа">
+   <bpmn2:incoming>SequenceFlow_1yymhp1</bpmn2:incoming>
+   <bpmn2:outgoing>SequenceFlow_1ldp9mp</bpmn2:outgoing>
+  </bpmn2:sendTask>
+
+  <bpmn2:endEvent id="End" name="Завершение процесса">
+   <bpmn2:incoming>SequenceFlow_1ldp9mp</bpmn2:incoming>
+   <bpmn2:incoming>SequenceFlow_0hv7c81</bpmn2:incoming>
+  </bpmn2:endEvent>
+
+  <bpmn2:sequenceFlow id="SequenceFlow_1ldp9mp" sourceRef="SendReject" targetRef="End"/>
+  <bpmn2:sequenceFlow id="SequenceFlow_0hv7c81" sourceRef="SendAccept" targetRef="End"/>
+  <bpmn2:sequenceFlow id="SequenceFlow_0u1pgc6" sourceRef="Validation" targetRef="WaitForOperation"/>
+
+  <bpmn2:parallelGateway id="WaitForOperation" name="Объединение потоков">
+   <bpmn2:incoming>SequenceFlow_0u1pgc6</bpmn2:incoming>
+   <bpmn2:incoming>SequenceFlow_1lknq96</bpmn2:incoming>
+   <bpmn2:outgoing>SequenceFlow_17h8rue</bpmn2:outgoing>
+  </bpmn2:parallelGateway>
+
+  <bpmn2:sequenceFlow id="SequenceFlow_1lknq96" sourceRef="SendAck" targetRef="WaitForOperation"/>
+  <bpmn2:sequenceFlow id="SequenceFlow_17h8rue" sourceRef="WaitForOperation" targetRef="Switch"/>
+
+  <bpmn2:scriptTask id="AcceptPreparation" name="Подготовка подтверждения регистрации">
+   <bpmn2:incoming>AcceptFlow</bpmn2:incoming>
+   <bpmn2:outgoing>SequenceFlow_0gpxbql</bpmn2:outgoing>
+  </bpmn2:scriptTask>
+
+  <bpmn2:scriptTask id="RejectPreparation" name="Подготовка отказа">
+   <bpmn2:incoming>RejectFlow</bpmn2:incoming>
+   <bpmn2:outgoing>SequenceFlow_1yymhp1</bpmn2:outgoing>
+  </bpmn2:scriptTask>
+
+  <bpmn2:scriptTask id="AckPreparation" name="Подготовка подтверждение заполнения анкеты">
+   <bpmn2:incoming>SequenceFlow_1a9y6xm</bpmn2:incoming>
+   <bpmn2:outgoing>SequenceFlow_0lmsjus</bpmn2:outgoing>
+  </bpmn2:scriptTask>
+
+ </bpmn2:process>
+ <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+  <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+   <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="Start">
+    <dc:Bounds x="144" y="215" width="36" height="36"/>
+    <bpmndi:BPMNLabel>
+     <dc:Bounds x="119" y="251" width="89" height="13"/>
+    </bpmndi:BPMNLabel>
+   </bpmndi:BPMNShape>
+   <bpmndi:BPMNEdge id="SequenceFlow_0i48jnx_di" bpmnElement="SequenceFlow_0i48jnx">
+    <di:waypoint xsi:type="dc:Point" x="180" y="233"/>
+    <di:waypoint xsi:type="dc:Point" x="222" y="233"/>
+    <bpmndi:BPMNLabel>
+     <dc:Bounds x="156" y="211.5" width="90" height="13"/>
+    </bpmndi:BPMNLabel>
+   </bpmndi:BPMNEdge>
+   <bpmndi:BPMNShape id="UserTask_1eccoz5_di" bpmnElement="EnterData">
+    <dc:Bounds x="222" y="193" width="100" height="80"/>
+   </bpmndi:BPMNShape>
+   <bpmndi:BPMNShape id="ExclusiveGateway_1mfuycw_di" bpmnElement="Switch" isMarkerVisible="true">
+    <dc:Bounds x="826" y="207" width="50" height="50"/>
+    <bpmndi:BPMNLabel>
+     <dc:Bounds x="880" y="213" width="70" height="38"/>
+    </bpmndi:BPMNLabel>
+   </bpmndi:BPMNShape>
+   <bpmndi:BPMNEdge id="SequenceFlow_1s2y42w_di" bpmnElement="AcceptFlow">
+    <di:waypoint xsi:type="dc:Point" x="851" y="207"/>
+    <di:waypoint xsi:type="dc:Point" x="851" y="137"/>
+    <di:waypoint xsi:type="dc:Point" x="930" y="137"/>
+    <bpmndi:BPMNLabel>
+     <dc:Bounds x="832" y="112" width="65" height="13"/>
+    </bpmndi:BPMNLabel>
+   </bpmndi:BPMNEdge>
+   <bpmndi:BPMNEdge id="SequenceFlow_0g4wuao_di" bpmnElement="RejectFlow">
+    <di:waypoint xsi:type="dc:Point" x="851" y="257"/>
+    <di:waypoint xsi:type="dc:Point" x="851" y="321"/>
+    <di:waypoint xsi:type="dc:Point" x="930" y="321"/>
+    <bpmndi:BPMNLabel>
+     <dc:Bounds x="853" y="326" width="30" height="13"/>
+    </bpmndi:BPMNLabel>
+   </bpmndi:BPMNEdge>
+   <bpmndi:BPMNEdge id="SequenceFlow_1788u5t_di" bpmnElement="SequenceFlow_1788u5t">
+    <di:waypoint xsi:type="dc:Point" x="322" y="233"/>
+    <di:waypoint xsi:type="dc:Point" x="352" y="233"/>
+    <bpmndi:BPMNLabel>
+     <dc:Bounds x="337" y="211.5" width="0" height="13"/>
+    </bpmndi:BPMNLabel>
+   </bpmndi:BPMNEdge>
+   <bpmndi:BPMNShape id="ParallelGateway_0c15cuu_di" bpmnElement="Fork">
+    <dc:Bounds x="352" y="208" width="50" height="50"/>
+    <bpmndi:BPMNLabel>
+     <dc:Bounds x="350" y="261" width="55" height="13"/>
+    </bpmndi:BPMNLabel>
+   </bpmndi:BPMNShape>
+   <bpmndi:BPMNEdge id="SequenceFlow_1a9y6xm_di" bpmnElement="SequenceFlow_1a9y6xm">
+    <di:waypoint xsi:type="dc:Point" x="377" y="258"/>
+    <di:waypoint xsi:type="dc:Point" x="377" y="340"/>
+    <di:waypoint xsi:type="dc:Point" x="413" y="340"/>
+    <bpmndi:BPMNLabel>
+     <dc:Bounds x="392" y="292.5" width="0" height="13"/>
+    </bpmndi:BPMNLabel>
+   </bpmndi:BPMNEdge>
+   <bpmndi:BPMNEdge id="SequenceFlow_0lmsjus_di" bpmnElement="SequenceFlow_0lmsjus">
+    <di:waypoint xsi:type="dc:Point" x="513" y="340"/>
+    <di:waypoint xsi:type="dc:Point" x="560" y="340"/>
+    <bpmndi:BPMNLabel>
+     <dc:Bounds x="536.5" y="318.5" width="0" height="13"/>
+    </bpmndi:BPMNLabel>
+   </bpmndi:BPMNEdge>
+   <bpmndi:BPMNShape id="SendTask_0ypmdyf_di" bpmnElement="SendAck">
+    <dc:Bounds x="560" y="300" width="100" height="80"/>
+   </bpmndi:BPMNShape>
+   <bpmndi:BPMNShape id="UserTask_0zvvm1g_di" bpmnElement="Validation">
+    <dc:Bounds x="507" y="77" width="100" height="80"/>
+   </bpmndi:BPMNShape>
+   <bpmndi:BPMNEdge id="SequenceFlow_1oxge9f_di" bpmnElement="SequenceFlow_1oxge9f">
+    <di:waypoint xsi:type="dc:Point" x="377" y="208"/>
+    <di:waypoint xsi:type="dc:Point" x="377" y="117"/>
+    <di:waypoint xsi:type="dc:Point" x="507" y="117"/>
+    <bpmndi:BPMNLabel>
+     <dc:Bounds x="392" y="156" width="0" height="13"/>
+    </bpmndi:BPMNLabel>
+   </bpmndi:BPMNEdge>
+   <bpmndi:BPMNEdge id="SequenceFlow_0gpxbql_di" bpmnElement="SequenceFlow_0gpxbql">
+    <di:waypoint xsi:type="dc:Point" x="1030" y="137"/>
+    <di:waypoint xsi:type="dc:Point" x="1090" y="137"/>
+    <bpmndi:BPMNLabel>
+     <dc:Bounds x="1060" y="115.5" width="0" height="13"/>
+    </bpmndi:BPMNLabel>
+   </bpmndi:BPMNEdge>
+   <bpmndi:BPMNShape id="SendTask_1rdkmoa_di" bpmnElement="SendAccept">
+    <dc:Bounds x="1090" y="97" width="100" height="80"/>
+   </bpmndi:BPMNShape>
+   <bpmndi:BPMNEdge id="SequenceFlow_1yymhp1_di" bpmnElement="SequenceFlow_1yymhp1">
+    <di:waypoint xsi:type="dc:Point" x="1030" y="321"/>
+    <di:waypoint xsi:type="dc:Point" x="1090" y="321"/>
+    <bpmndi:BPMNLabel>
+     <dc:Bounds x="1060" y="299.5" width="0" height="13"/>
+    </bpmndi:BPMNLabel>
+   </bpmndi:BPMNEdge>
+   <bpmndi:BPMNShape id="SendTask_016qoku_di" bpmnElement="SendReject">
+    <dc:Bounds x="1090" y="281" width="100" height="80"/>
+   </bpmndi:BPMNShape>
+   <bpmndi:BPMNShape id="EndEvent_0te66no_di" bpmnElement="End">
+    <dc:Bounds x="1332.5995024875622" y="214" width="36" height="36"/>
+    <bpmndi:BPMNLabel>
+     <dc:Bounds x="1320" y="253" width="64" height="25"/>
+    </bpmndi:BPMNLabel>
+   </bpmndi:BPMNShape>
+   <bpmndi:BPMNEdge id="SequenceFlow_1ldp9mp_di" bpmnElement="SequenceFlow_1ldp9mp">
+    <di:waypoint xsi:type="dc:Point" x="1190" y="321"/>
+    <di:waypoint xsi:type="dc:Point" x="1261" y="321"/>
+    <di:waypoint xsi:type="dc:Point" x="1261" y="232"/>
+    <di:waypoint xsi:type="dc:Point" x="1333" y="232"/>
+    <bpmndi:BPMNLabel>
+     <dc:Bounds x="1276" y="270" width="0" height="13"/>
+    </bpmndi:BPMNLabel>
+   </bpmndi:BPMNEdge>
+   <bpmndi:BPMNEdge id="SequenceFlow_0hv7c81_di" bpmnElement="SequenceFlow_0hv7c81">
+    <di:waypoint xsi:type="dc:Point" x="1190" y="137"/>
+    <di:waypoint xsi:type="dc:Point" x="1261" y="137"/>
+    <di:waypoint xsi:type="dc:Point" x="1261" y="232"/>
+    <di:waypoint xsi:type="dc:Point" x="1333" y="232"/>
+    <bpmndi:BPMNLabel>
+     <dc:Bounds x="1276" y="177.5" width="0" height="13"/>
+    </bpmndi:BPMNLabel>
+   </bpmndi:BPMNEdge>
+   <bpmndi:BPMNEdge id="SequenceFlow_0u1pgc6_di" bpmnElement="SequenceFlow_0u1pgc6">
+    <di:waypoint xsi:type="dc:Point" x="607" y="117"/>
+    <di:waypoint xsi:type="dc:Point" x="734" y="117"/>
+    <di:waypoint xsi:type="dc:Point" x="734" y="209"/>
+    <bpmndi:BPMNLabel>
+     <dc:Bounds x="670.5" y="95.5" width="0" height="13"/>
+    </bpmndi:BPMNLabel>
+   </bpmndi:BPMNEdge>
+   <bpmndi:BPMNShape id="ParallelGateway_1n9hbj9_di" bpmnElement="WaitForOperation">
+    <dc:Bounds x="710" y="208" width="50" height="50"/>
+    <bpmndi:BPMNLabel>
+     <dc:Bounds x="700" y="261" width="71" height="25"/>
+    </bpmndi:BPMNLabel>
+   </bpmndi:BPMNShape>
+   <bpmndi:BPMNEdge id="SequenceFlow_1lknq96_di" bpmnElement="SequenceFlow_1lknq96">
+    <di:waypoint xsi:type="dc:Point" x="660" y="340"/>
+    <di:waypoint xsi:type="dc:Point" x="735" y="340"/>
+    <di:waypoint xsi:type="dc:Point" x="735" y="258"/>
+    <bpmndi:BPMNLabel>
+     <dc:Bounds x="697.5" y="318" width="0" height="13"/>
+    </bpmndi:BPMNLabel>
+   </bpmndi:BPMNEdge>
+   <bpmndi:BPMNEdge id="SequenceFlow_17h8rue_di" bpmnElement="SequenceFlow_17h8rue">
+    <di:waypoint xsi:type="dc:Point" x="760" y="233"/>
+    <di:waypoint xsi:type="dc:Point" x="826" y="232"/>
+    <bpmndi:BPMNLabel>
+     <dc:Bounds x="793" y="211" width="0" height="13"/>
+    </bpmndi:BPMNLabel>
+   </bpmndi:BPMNEdge>
+   <bpmndi:BPMNShape id="ScriptTask_0axdhfo_di" bpmnElement="AcceptPreparation">
+    <dc:Bounds x="930" y="97" width="100" height="80"/>
+   </bpmndi:BPMNShape>
+   <bpmndi:BPMNShape id="ScriptTask_0cnpe5l_di" bpmnElement="RejectPreparation">
+    <dc:Bounds x="930" y="281" width="100" height="80"/>
+   </bpmndi:BPMNShape>
+   <bpmndi:BPMNShape id="ScriptTask_09ysssw_di" bpmnElement="AckPreparation">
+    <dc:Bounds x="413" y="300" width="100" height="80"/>
+   </bpmndi:BPMNShape>
+  </bpmndi:BPMNPlane>
+ </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

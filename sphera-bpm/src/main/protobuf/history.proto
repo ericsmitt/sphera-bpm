@@ -1,0 +1,43 @@
+syntax = "proto2";
+
+import "project.proto";
+import "process.proto";
+import "task.proto";
+
+package bpm;
+
+option java_package = "sphera.bpm.serializer.proto";
+
+message HistoryStateV1 {
+    map<string, HistoryDataV1> history = 1;
+}
+
+message CreatedHistoryDataEvtV1 {
+    required HistoryDataV1 x = 1;
+}
+
+message HistoryDataV1 {
+    oneof HistoryData_oneof {
+        ProjectHistoryDataV1 opt1 = 1;
+        ProcessHistoryDataV1 opt2 = 2;
+        TaskHistoryDataV1 opt3 = 3;
+    }
+}
+
+message ProjectHistoryDataV1 {
+     required string id = 1;
+     required ProjectExtendedInfoV1 extendedInfo = 2;
+     optional string completedOn = 3;
+}
+
+message ProcessHistoryDataV1 {
+    required string id = 1;
+    required ProcessExtendedInfoV1 extendedInfo = 2;
+    optional string completedOn = 3;
+}
+
+message TaskHistoryDataV1 {
+    required string id = 1;
+    required TaskExtendedInfoV1 extendedInfo = 2;
+    optional string completedOn = 3;
+}

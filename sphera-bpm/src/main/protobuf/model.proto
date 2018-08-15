@@ -1,0 +1,25 @@
+syntax = "proto2";
+
+package bpm;
+
+option java_package = "sphera.bpm.serializer.proto";
+
+message ModifyAttrV1 {
+    required ModifierV1 createdBy = 1;
+    required string createdOn = 2;
+    optional ModifierV1 updatedBy = 3;
+    optional string updatedOn = 4;
+}
+
+message ModifierV1 {
+    optional string actorId = 1;
+    optional string userId = 2;
+    required int32 modifierType = 3;
+}
+
+message RoleDefinitionV1 {
+    required string name = 1;
+    optional string description = 2;
+    required string roleTypeId = 3;
+    optional string userId = 4;
+}

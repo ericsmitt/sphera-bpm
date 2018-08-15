@@ -1,0 +1,33 @@
+<configuration>
+  <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+    <file>${application.home:-.}/logs/application.log</file>
+    <encoder>
+      <pattern>%d{YYYY-MM-dd HH:mm:ss.SSS} %level [%logger] [%thread] [%X{akkaSource}] - %message%n%xException</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%-5level [%logger{36}] [%X{akkaSource}] - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="ASYNCFILE" class="ch.qos.logback.classic.AsyncAppender">
+    <appender-ref ref="FILE" />
+  </appender>
+
+  <appender name="ASYNCSTDOUT" class="ch.qos.logback.classic.AsyncAppender">
+    <appender-ref ref="STDOUT" />
+  </appender>
+
+  <logger name="com.outworkers" level="WARN" />
+  <logger name="com.datastax" level="WARN" />
+  <logger name="io.netty" level="WARN" />
+  <logger name="sphera.core.http.security" level="ERROR" />
+
+  <root level="DEBUG">
+    <appender-ref ref="ASYNCFILE" />
+    <appender-ref ref="ASYNCSTDOUT" />
+  </root>
+
+</configuration>

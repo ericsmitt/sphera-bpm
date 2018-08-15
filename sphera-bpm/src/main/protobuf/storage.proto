@@ -1,0 +1,44 @@
+syntax = "proto2";
+
+import "exceptions.proto";
+
+package bpm;
+
+option java_package = "sphera.bpm.serializer.proto";
+
+message UpdatedDataElementEvtV1 {
+    required DataElementV1 dataElement = 1;
+}
+
+message UpdatedDataEvtV1 {
+    required DataV1 data = 1;
+}
+
+message DataElementV1 {
+    required string path = 1;
+    required DataElementValueV1 value = 2;
+}
+
+message DataV1 {
+    map<string, DataElementValueV1> elements = 1;
+}
+
+message DataElementValueV1 {
+    oneof DataElementValue_oneof {
+        string opt1 = 1;
+        int32 opt2 = 2;
+        bool opt3 = 3;
+        DecimalV1 opt4 = 4;
+    }
+}
+
+message DecimalV1 {
+    required string x = 1;
+}
+
+message ExceptionEvtV1 {
+    required BpmExceptionV1 x = 1;
+}
+
+
+

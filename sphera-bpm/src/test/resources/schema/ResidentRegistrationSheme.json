@@ -1,0 +1,429 @@
+  {
+    "properties" : {
+      "value" : {
+        "properties" : {
+          "phone" : {
+            "$ref" : "#/definitions/sphera.bpm.storage.defstorage.StringDef"
+          },
+          "approved" : {
+            "$ref" : "#/definitions/sphera.bpm.storage.defstorage.BooleanDef"
+          },
+          "changeable" : {
+            "$ref" : "#/definitions/sphera.bpm.storage.defstorage.BooleanDef"
+          },
+          "title" : {
+            "properties" : {
+              "value" : {
+                "properties" : {
+                  "en" : {
+                    "$ref" : "#/definitions/sphera.bpm.storage.defstorage.StringDef"
+                  },
+                  "ru" : {
+                    "$ref" : "#/definitions/sphera.bpm.storage.defstorage.StringDef"
+                  }
+                },
+                "additionalProperties" : false,
+                "type" : "object",
+                "required" : [
+                  "ru",
+                  "en"
+                ],
+                "minProperties" : 2
+              },
+              "name" : {
+                "type" : "string"
+              },
+              "description" : {
+                "type" : "string"
+              },
+              "path" : {
+                "type" : "string"
+              },
+              "type" : {
+                "const" : "MLString"
+              }
+            },
+            "additionalProperties" : false,
+            "type" : "object",
+            "required" : [
+              "name",
+              "value",
+              "path",
+              "type"
+            ],
+            "minProperties" : 4
+          },
+          "msg1" : {
+            "$ref" : "#/definitions/sphera.bpm.storage.defstorage.StringDef"
+          },
+          "comment" : {
+            "$ref" : "#/definitions/sphera.bpm.storage.defstorage.StringDef"
+          },
+          "company" : {
+            "$ref" : "#/definitions/sphera.bpm.storage.defstorage.StringDef"
+          },
+          "files" : {
+            "properties" : {
+              "value" : {
+                "properties" : {
+                  "reportD" : {
+                    "$ref" : "#/definitions/sphera.bpm.storage.defstorage.StringDef"
+                  },
+                  "reportC" : {
+                    "$ref" : "#/definitions/sphera.bpm.storage.defstorage.StringDef"
+                  },
+                  "reportB" : {
+                    "$ref" : "#/definitions/sphera.bpm.storage.defstorage.StringDef"
+                  },
+                  "reportA" : {
+                    "$ref" : "#/definitions/sphera.bpm.storage.defstorage.StringDef"
+                  }
+                },
+                "additionalProperties" : false,
+                "type" : "object",
+                "required" : [
+                  "reportA",
+                  "reportB",
+                  "reportC",
+                  "reportD"
+                ],
+                "minProperties" : 4
+              },
+              "name" : {
+                "type" : "string"
+              },
+              "description" : {
+                "type" : "string"
+              },
+              "path" : {
+                "type" : "string"
+              },
+              "type" : {
+                "const" : "object"
+              }
+            },
+            "additionalProperties" : false,
+            "type" : "object",
+            "required" : [
+              "name",
+              "value",
+              "path",
+              "type"
+            ],
+            "minProperties" : 4
+          },
+          "employees" : {
+            "$ref" : "#/definitions/sphera.bpm.storage.defstorage.DecimalDef"
+          },
+          "users" : {
+            "properties" : {
+              "value" : {
+                "properties" : {
+                  "6de4e1c7-0a28-4a98-ae75-db02ef76ea0b" : {
+                    "properties" : {
+                      "value" : {
+                        "properties" : {
+                          "phone" : {
+                            "$ref" : "#/definitions/sphera.bpm.storage.defstorage.StringDef"
+                          },
+                          "lastname" : {
+                            "$ref" : "#/definitions/sphera.bpm.storage.defstorage.StringDef"
+                          },
+                          "middlename" : {
+                            "$ref" : "#/definitions/sphera.bpm.storage.defstorage.StringDef"
+                          },
+                          "firstname" : {
+                            "$ref" : "#/definitions/sphera.bpm.storage.defstorage.StringDef"
+                          },
+                          "email" : {
+                            "$ref" : "#/definitions/sphera.bpm.storage.defstorage.StringDef"
+                          }
+                        },
+                        "additionalProperties" : false,
+                        "type" : "object",
+                        "required" : [
+                          "email",
+                          "firstname",
+                          "middlename",
+                          "lastname",
+                          "phone"
+                        ],
+                        "minProperties" : 5
+                      },
+                      "name" : {
+                        "type" : "string"
+                      },
+                      "description" : {
+                        "type" : "string"
+                      },
+                      "path" : {
+                        "type" : "string"
+                      },
+                      "type" : {
+                        "const" : "object"
+                      }
+                    },
+                    "additionalProperties" : false,
+                    "type" : "object",
+                    "required" : [
+                      "name",
+                      "value",
+                      "path",
+                      "type"
+                    ],
+                    "minProperties" : 4
+                  }
+                },
+                "additionalProperties" : false,
+                "type" : "object",
+                "required" : [
+                  "6de4e1c7-0a28-4a98-ae75-db02ef76ea0b"
+                ],
+                "minProperties" : 1
+              },
+              "name" : {
+                "type" : "string"
+              },
+              "description" : {
+                "type" : "string"
+              },
+              "path" : {
+                "type" : "string"
+              },
+              "type" : {
+                "const" : "object"
+              }
+            },
+            "additionalProperties" : false,
+            "type" : "object",
+            "required" : [
+              "name",
+              "value",
+              "path",
+              "type"
+            ],
+            "minProperties" : 4
+          },
+          "msg2" : {
+            "$ref" : "#/definitions/sphera.bpm.storage.defstorage.StringDef"
+          },
+          "email" : {
+            "$ref" : "#/definitions/sphera.bpm.storage.defstorage.StringDef"
+          },
+          "rejectReason" : {
+            "$ref" : "#/definitions/sphera.bpm.storage.defstorage.StringDef"
+          },
+          "secretary" : {
+            "properties" : {
+              "value" : {
+                "properties" : {
+                  "changeable" : {
+                    "$ref" : "#/definitions/sphera.bpm.storage.defstorage.BooleanDef"
+                  },
+                  "fullname" : {
+                    "$ref" : "#/definitions/sphera.bpm.storage.defstorage.StringDef"
+                  },
+                  "lastname" : {
+                    "$ref" : "#/definitions/sphera.bpm.storage.defstorage.StringDef"
+                  },
+                  "middlename" : {
+                    "$ref" : "#/definitions/sphera.bpm.storage.defstorage.StringDef"
+                  },
+                  "firstname" : {
+                    "$ref" : "#/definitions/sphera.bpm.storage.defstorage.StringDef"
+                  }
+                },
+                "additionalProperties" : false,
+                "type" : "object",
+                "required" : [
+                  "firstname",
+                  "middlename",
+                  "lastname",
+                  "fullname",
+                  "changeable"
+                ],
+                "minProperties" : 5
+              },
+              "name" : {
+                "type" : "string"
+              },
+              "description" : {
+                "type" : "string"
+              },
+              "path" : {
+                "type" : "string"
+              },
+              "type" : {
+                "const" : "object"
+              }
+            },
+            "additionalProperties" : false,
+            "type" : "object",
+            "required" : [
+              "name",
+              "value",
+              "path",
+              "type"
+            ],
+            "minProperties" : 4
+          }
+        },
+        "additionalProperties" : false,
+        "type" : "object",
+        "required" : [
+          "secretary",
+          "rejectReason",
+          "email",
+          "msg2",
+          "users",
+          "employees",
+          "files",
+          "company",
+          "comment",
+          "msg1",
+          "title",
+          "changeable",
+          "approved",
+          "phone"
+        ],
+        "minProperties" : 14
+      },
+      "name" : {
+        "type" : "string"
+      },
+      "description" : {
+        "type" : "string"
+      },
+      "path" : {
+        "type" : "string"
+      },
+      "type" : {
+        "const" : "root"
+      }
+    },
+    "definitions" : {
+      "sphera.bpm.storage.defstorage.IntDef" : {
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "value" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "path" : {
+            "type" : "string"
+          },
+          "type" : {
+            "const" : "int"
+          }
+        },
+        "additionalProperties" : false,
+        "type" : "object",
+        "required" : [
+          "name",
+          "value",
+          "path",
+          "type"
+        ],
+        "minProperties" : 4
+      },
+      "sphera.bpm.storage.defstorage.StringDef" : {
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "value" : {
+            "type" : "string"
+          },
+          "path" : {
+            "type" : "string"
+          },
+          "type" : {
+            "const" : "string"
+          }
+        },
+        "additionalProperties" : false,
+        "type" : "object",
+        "required" : [
+          "name",
+          "value",
+          "path",
+          "type"
+        ],
+        "minProperties" : 4
+      },
+      "sphera.bpm.storage.defstorage.BooleanDef" : {
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "value" : {
+            "type" : "boolean"
+          },
+          "path" : {
+            "type" : "string"
+          },
+          "type" : {
+            "const" : "boolean"
+          }
+        },
+        "additionalProperties" : false,
+        "type" : "object",
+        "required" : [
+          "name",
+          "value",
+          "path",
+          "type"
+        ],
+        "minProperties" : 4
+      },
+      "sphera.bpm.storage.defstorage.DecimalDef" : {
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "value" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "path" : {
+            "type" : "string"
+          },
+          "type" : {
+            "const" : "decimal"
+          }
+        },
+        "additionalProperties" : false,
+        "type" : "object",
+        "required" : [
+          "name",
+          "value",
+          "path",
+          "type"
+        ],
+        "minProperties" : 4
+      }
+    },
+    "additionalProperties" : false,
+    "type" : "object",
+    "required" : [
+      "name",
+      "value",
+      "path",
+      "type"
+    ],
+    "minProperties" : 4
+  }

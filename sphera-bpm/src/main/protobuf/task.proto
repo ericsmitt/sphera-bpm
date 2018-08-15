@@ -1,0 +1,77 @@
+syntax = "proto2";
+
+import "exceptions.proto";
+import "definition.proto";
+import "model.proto";
+
+package bpm;
+
+option java_package = "sphera.bpm.serializer.proto";
+
+message TaskManagerStateV1 {
+    map<string, TaskInfoV1> v = 1;
+}
+
+message TaskStateV1 {
+    oneof TaskState_oneof {
+        UserTaskStateV1 opt1 = 1;
+    }
+}
+
+message UserTaskStateV1 {
+    required DefinitionsV1 definitions = 1;
+    repeated BpmExceptionV1 exceptions = 2;
+}
+
+message CreatedTaskInfoEvtV1 {
+    required TaskInfoV1 x = 1;
+}
+
+message UpdatedTaskInfoEvtV1 {
+    required UpdateTaskInfoV1 x = 1;
+    required ModifierV1 modifier = 2;
+}
+
+message DeletedTaskInfoEvtV1 {
+    required string taskId = 1;
+}
+
+message TaskInfoV1 {
+    required string id = 1;
+    required string name = 2;
+    optional string description = 3;
+    required int32 taskType = 4;
+    required int32 taskStatus = 5;
+    required int32 taskInitiator = 6;
+    required string ownerId = 7;
+    optional string assigneeId = 8;
+    optional string reviewerId = 9;
+    repeated string watcherIds = 10;
+    optional string processId = 11;
+    optional string operationId = 12;
+    optional string operationBpmId = 13;
+    optional string formTemplateId = 14;
+    optional string actualStart = 15;
+    optional string actualEnd = 16;
+    optional string plannedStart = 17;
+    optional int64 plannedDuration = 18;
+    required ModifyAttrV1 modifyAttr = 19;
+}
+
+message UpdateTaskInfoV1 {
+    required string id = 1;
+    optional string name = 2;
+    optional string description = 3;
+    optional int32 taskStatus = 4;
+    optional int32 taskInitiator = 5;
+    optional string assigneeId = 6;
+    optional string reviewerId = 7;
+    repeated string watcherIds = 8;
+    optional string actualStart = 9;
+    optional string actualEnd = 10;
+}
+
+message TaskExtendedInfoV1 {
+    required TaskInfoV1 info = 1;
+    required TaskStateV1 state = 2;
+}

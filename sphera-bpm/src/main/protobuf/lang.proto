@@ -1,0 +1,118 @@
+syntax = "proto2";
+
+package bpm;
+
+option java_package = "sphera.bpm.serializer.proto";
+
+message ExpressionV1 {
+    oneof Operation_oneof {
+        EqualV1 opt1 = 1;
+        NotEqualV1 opt2 = 2;
+        GreaterThanV1 opt3 = 3;
+        LowerThanV1 opt4 = 4;
+        GreaterThanOrEqualV1 opt5 = 5;
+        LowerThanOrEqualV1 opt6 = 6;
+        NotV1 opt7 = 7;
+        OrV1 opt8 = 8;
+        AndV1 opt9 = 9;
+        TrueV1 opt10 = 10;
+        FalseV1 opt11 = 11;
+        PlusV1 opt12 = 12;
+        MinusV1 opt13 = 13;
+        DivideV1 opt14 = 14;
+        MultiplyV1 opt15 = 15;
+        RemainderV1 opt16 = 16;
+        VariableV1 opt17 = 17;
+        StringLiteralV1 opt18 = 18;
+        DecimalLiteralV1 opt19 = 19;
+    }
+}
+
+message EqualV1 {
+    required ExpressionV1 ex1 = 1;
+    required ExpressionV1 ex2 = 2;
+}
+
+message NotEqualV1 {
+    required ExpressionV1 ex1 = 1;
+    required ExpressionV1 ex2 = 2;
+}
+
+message GreaterThanV1 {
+    required ExpressionV1 ex1 = 1;
+    required ExpressionV1 ex2 = 2;
+}
+
+message LowerThanV1 {
+    required ExpressionV1 ex1 = 1;
+    required ExpressionV1 ex2 = 2;
+}
+
+message GreaterThanOrEqualV1 {
+    required ExpressionV1 ex1 = 1;
+    required ExpressionV1 ex2 = 2;
+}
+
+
+message LowerThanOrEqualV1 {
+    required ExpressionV1 ex1 = 1;
+    required ExpressionV1 ex2 = 2;
+}
+
+message NotV1 {
+    required ExpressionV1 ex = 1;
+}
+
+message OrV1 {
+    required ExpressionV1 ex1 = 1;
+    required ExpressionV1 ex2 = 2;
+}
+
+message AndV1 {
+    required ExpressionV1 ex1 = 1;
+    required ExpressionV1 ex2 = 2;
+}
+
+message TrueV1 {
+}
+
+message FalseV1 {
+}
+
+message PlusV1 {
+    required ExpressionV1 ex1 = 1;
+    required ExpressionV1 ex2 = 2;
+}
+
+message MinusV1 {
+    required ExpressionV1 ex1 = 1;
+    required ExpressionV1 ex2 = 2;
+}
+
+message DivideV1 {
+    required ExpressionV1 ex1 = 1;
+    required ExpressionV1 ex2 = 2;
+}
+
+message MultiplyV1 {
+    required ExpressionV1 ex1 = 1;
+    required ExpressionV1 ex2 = 2;
+}
+
+message RemainderV1 {
+    required ExpressionV1 ex1 = 1;
+    required ExpressionV1 ex2 = 2;
+}
+
+message VariableV1 {
+    required string name = 1;
+}
+
+message StringLiteralV1 {
+    required string value = 1;
+}
+
+message DecimalLiteralV1 {
+    required string value = 1;
+}
+

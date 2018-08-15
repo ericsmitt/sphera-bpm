@@ -1,0 +1,2402 @@
+{
+	"variables": [],
+	"info": {
+		"name": "sphera-bpm",
+		"_postman_id": "e736c1fb-0866-d1e1-9e63-cd1d084c29a8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "projects",
+			"description": "",
+			"item": [
+				{
+					"name": "Get info all",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/projects",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Get info",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/projects/{{projectId}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Get extended info",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/projects/{{projectId}}/extendedInfo",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Get data",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/projects/{{projectId}}/data",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Get data element",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/projects/{{projectId}}/data/secretary.changeable",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Get definitions",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/projects/{{projectId}}/definitions",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Get definition",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/projects/{{projectId}}/definitions/secretary.changeable",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Get status",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/projects/{{projectId}}/status",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get active operations",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/project/{{projectId}}/activeProcesses",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get history all",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/projects/history",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get history",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/projects/history/{{projectId}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"pm.environment.set(\"projectId\", jsonData.id);",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/projects",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\" : \"process-11\",\n  \"description\" : \"desc-12\",\n  \"roles\" : {\n    \"i1\" : \"520d1b79-1bbf-4074-96ea-2f454cc5419e\"\n  },\n  \"data\" : {\n    \"elements\" : {\n      \"i3\" : \"strA\",\n      \"i5\" : 1000,\n      \"i9\" : true\n    }\n  },\n  \"managerId\" : \"b579fef6-39b8-4a09-8718-92c5af836d7b\",\n  \"templateId\" : \"2726e9b5-0b8b-40a4-a32b-d4bfef0b91a9\"\n}"
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Start",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/projects/{{projectId}}/start",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/projects/{{projectId}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "processes",
+			"description": "",
+			"item": [
+				{
+					"name": "Get info all",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/processes",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get info",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/processes/{{processId}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get extended info",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/processes/{{processId}}/extendedInfo",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get data",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/processes/{{processId}}/data",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get data element",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/processes/{{processId}}/data/secretary.changeable",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get definitions",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/processes/{{processId}}/definitions",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get definition",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/processes/{{processId}}/definitions/secretary.changeable",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get status",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/processes/{{processId}}/status",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get active operations",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/processes/{{processId}}/activeOperations",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get history all",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/processes/history",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get history",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/processes/history/{{processId}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get taskId of created task",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"pm.environment.set(\"taskId\", jsonData[jsonData.length-1].id);",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"setTimeout(function () {}, 1000);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/tasks",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"pm.environment.set(\"processId\", jsonData.id);",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/processes",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\" : \"process-11\",\n  \"description\" : \"desc-12\",\n  \"roles\" : {\n    \"i1\" : \"e20597b7-03d7-4416-9cda-031863385fd9\"\n  },\n   \"data\" : {\n    \"elements\" : {\n      \"i3\" : \"strA\",\n      \"i5\" : 1000,\n      \"i9\" : true\n    }\n  },\n  \"managerId\" : \"93a853b5-1b9e-4253-83ea-7420fae5c3d0\",\n  \"templateId\" : \"65deddb9-078f-4620-8159-ad7f98683144\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Start",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/processes/{{processId}}/start",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/processes/{{processId}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tasks",
+			"description": "",
+			"item": [
+				{
+					"name": "Get info all",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/tasks",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get info",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/tasks/{{taskId}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get extended info",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/tasks/{{taskId}}/extendedInfo",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get status",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/tasks/{{taskId}}/status",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get data",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/tasks/{{taskId}}/data",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get history all",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/tasks/history",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get history",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/tasks/history/{{taskId}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/tasks",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Start",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/tasks/{{taskId}}/start",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Complete",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/tasks/{{taskId}}/complete",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/tasks/{{taskId}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "masterData",
+			"description": "",
+			"item": [
+				{
+					"name": "processTemplates",
+					"description": "",
+					"item": [
+						{
+							"name": "Get all",
+							"request": {
+								"url": "http://localhost:9000/bpm/api/masterData/processTemplates",
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Token",
+										"value": "::OXY:BPM:EN"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Get",
+							"request": {
+								"url": "http://localhost:9000/bpm/api/masterData/processTemplates/{{processTemplateId}}",
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Token",
+										"value": "::OXY:BPM:EN"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"url": "http://localhost:9000/bpm/api/masterData/processTemplates",
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-Token",
+										"value": "::OXY:BPM:EN"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\" : \"65deddb9-078f-4620-8159-ad7f98683144\",\n  \"name\" : \"name\",\n  \"description\" : null,\n\"sourceCode\" : \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\\n<bpmn2:definitions xmlns:xsi=\\\"http://www.w3.org/2001/XMLSchema-instance\\\" xmlns:bpmn2=\\\"http://www.omg.org/spec/BPMN/20100524/MODEL\\\" xmlns:bpmndi=\\\"http://www.omg.org/spec/BPMN/20100524/DI\\\" xmlns:dc=\\\"http://www.omg.org/spec/DD/20100524/DC\\\" xmlns:di=\\\"http://www.omg.org/spec/DD/20100524/DI\\\" xmlns:sphera=\\\"http://sphera\\\" id=\\\"sample-diagram\\\" targetNamespace=\\\"http://bpmn.io/schema/bpmn\\\" xsi:schemaLocation=\\\"http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd\\\">\\n    <bpmn2:process id=\\\"Process_1\\\" isExecutable=\\\"false\\\">\\n        <bpmn2:startEvent id=\\\"Start\\\" name=\\\"Начало процесса\\\">\\n            <bpmn2:outgoing>SequenceFlow_0i48jnx</bpmn2:outgoing>\\n        </bpmn2:startEvent>\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_0i48jnx\\\" sourceRef=\\\"Start\\\" targetRef=\\\"EnterData\\\" />\\n\\n        <bpmn2:userTask id=\\\"EnterData\\\" name=\\\"Ввод анкеты\\\"\\n            sphera:formTemplateId=\\\"32c900c2-c00e-48a8-9edd-6e205fda1117\\\"\\n            sphera:ownerId=\\\"9ab9eaf2-1f50-4c67-b253-e6c77a26eb95\\\"\\n            sphera:watcherIds=\\\"9ab9eaf2-1f50-4c67-b253-e6c77a26eb95,e3ea6923-132c-4a06-998e-5738688789e2\\\"\\n            sphera:role=\\\"candidate\\\"\\n\\n            sphera:importAssignments=\\\"\\n                $form.company = company,\\n                $form.title = title,\\n                $form.employees = employees,\\n                $form.phone = phone,\\n                $form.email = email\\\"\\n\\n            sphera:exportAssignments=\\\"\\n                company = $form.company,\\n                title = $form.title,\\n                employees = $form.employees,\\n                phone = $form.phone,\\n                email = $form.email\\\">\\n\\n            <bpmn2:documentation>documentation field</bpmn2:documentation>\\n            <bpmn2:incoming>SequenceFlow_0i48jnx</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_1788u5t</bpmn2:outgoing>\\n        </bpmn2:userTask>\\n\\n        <bpmn2:exclusiveGateway id=\\\"Switch\\\" name=\\\"Ветвление по результатам проверки\\\" default=\\\"RejectFlow\\\">\\n            <bpmn2:incoming>SequenceFlow_17h8rue</bpmn2:incoming>\\n            <bpmn2:outgoing>AcceptFlow</bpmn2:outgoing>\\n            <bpmn2:outgoing>RejectFlow</bpmn2:outgoing>\\n        </bpmn2:exclusiveGateway>\\n\\n        <bpmn2:sequenceFlow id=\\\"AcceptFlow\\\" name=\\\"Регистрация\\\" sourceRef=\\\"Switch\\\" targetRef=\\\"AcceptPreparation\\\" sphera:expression=\\\" approved == true\\\"/>\\n        <bpmn2:sequenceFlow id=\\\"RejectFlow\\\" name=\\\"Отказ\\\" sourceRef=\\\"Switch\\\" targetRef=\\\"RejectPreparation\\\" />\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_1788u5t\\\" sourceRef=\\\"EnterData\\\" targetRef=\\\"Fork\\\" />\\n\\n        <bpmn2:parallelGateway id=\\\"Fork\\\" name=\\\"Ветвление\\\">\\n            <bpmn2:incoming>SequenceFlow_1788u5t</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_1a9y6xm</bpmn2:outgoing>\\n            <bpmn2:outgoing>SequenceFlow_1oxge9f</bpmn2:outgoing>\\n        </bpmn2:parallelGateway>\\n\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_1a9y6xm\\\" sourceRef=\\\"Fork\\\" targetRef=\\\"AckPreparation\\\" />\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_0lmsjus\\\" sourceRef=\\\"AckPreparation\\\" targetRef=\\\"SendAck\\\" />\\n\\n        <bpmn2:sendTask id=\\\"SendAck\\\" name=\\\"Отправка подтверждения\\\"\\n                        sphera:type=\\\"mail\\\"\\n                        sphera:addresses=\\\"email\\\"\\n                        sphera:subject=\\\"&#34;Регистрация в sphera&#34;\\\"\\n                        sphera:message=\\\"msg1\\\">\\n            <bpmn2:incoming>SequenceFlow_0lmsjus</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_1lknq96</bpmn2:outgoing>\\n        </bpmn2:sendTask>\\n\\n        <bpmn2:userTask id=\\\"Validation\\\" name=\\\"Проверка анкеты\\\"\\n         sphera:formTemplateId=\\\"6ba8aad7-9008-4662-aa58-a472a92d6184\\\"\\n         sphera:ownerId=\\\"e3ea6923-132c-4a06-998e-5738688789e2\\\"\\n         sphera:role=\\\"checkingUser\\\"\\n\\n         sphera:importAssignments=\\\"\\n                $form.approved = approved,\\n                $form.rejectReason = rejectReason,\\n                $form.filledForm.company = company,\\n                $form.filledForm.title = title,\\n                $form.filledForm.employees = employees,\\n                $form.filledForm.phone = phone,\\n                $form.filledForm.email = email\\\"\\n\\n         sphera:exportAssignments=\\\"\\n                approved = $form.approved,\\n                rejectReason = $form.rejectReason\\\">\\n\\n            <bpmn2:incoming>SequenceFlow_1oxge9f</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_0u1pgc6</bpmn2:outgoing>\\n        </bpmn2:userTask>\\n\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_1oxge9f\\\" sourceRef=\\\"Fork\\\" targetRef=\\\"Validation\\\" />\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_0gpxbql\\\" sourceRef=\\\"AcceptPreparation\\\" targetRef=\\\"SendAccept\\\" />\\n        <bpmn2:sendTask id=\\\"SendAccept\\\" name=\\\"Отправка подтверждения регистрации\\\"\\n                        sphera:type=\\\"mail\\\"\\n                        sphera:addresses=\\\"email\\\"\\n                        sphera:subject=\\\"&#34;Подтверждение регистрации в sphera&#34;\\\"\\n                        sphera:message=\\\"msg2\\\">\\n            <bpmn2:incoming>SequenceFlow_0gpxbql</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_0hv7c81</bpmn2:outgoing>\\n        </bpmn2:sendTask>\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_1yymhp1\\\" sourceRef=\\\"RejectPreparation\\\" targetRef=\\\"SendReject\\\" />\\n\\n        <bpmn2:sendTask id=\\\"SendReject\\\" name=\\\"Отправка отказа\\\"\\n                        sphera:type=\\\"mail\\\"\\n                        sphera:addresses=\\\"email\\\"\\n                        sphera:subject=\\\"&#34;Отказ регистрации в sphera&#34;\\\"\\n                        sphera:message=\\\"msg2\\\">\\n            <bpmn2:incoming>SequenceFlow_1yymhp1</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_1ldp9mp</bpmn2:outgoing>\\n        </bpmn2:sendTask>\\n\\n        <bpmn2:endEvent id=\\\"End\\\" name=\\\"Завершение процесса\\\">\\n            <bpmn2:incoming>SequenceFlow_1ldp9mp</bpmn2:incoming>\\n            <bpmn2:incoming>SequenceFlow_0hv7c81</bpmn2:incoming>\\n        </bpmn2:endEvent>\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_1ldp9mp\\\" sourceRef=\\\"SendReject\\\" targetRef=\\\"End\\\" />\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_0hv7c81\\\" sourceRef=\\\"SendAccept\\\" targetRef=\\\"End\\\" />\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_0u1pgc6\\\" sourceRef=\\\"Validation\\\" targetRef=\\\"WaitForOperation\\\" />\\n\\n        <bpmn2:parallelGateway id=\\\"WaitForOperation\\\" name=\\\"Объединение потоков\\\">\\n            <bpmn2:incoming>SequenceFlow_0u1pgc6</bpmn2:incoming>\\n            <bpmn2:incoming>SequenceFlow_1lknq96</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_17h8rue</bpmn2:outgoing>\\n        </bpmn2:parallelGateway>\\n\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_1lknq96\\\" sourceRef=\\\"SendAck\\\" targetRef=\\\"WaitForOperation\\\" />\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_17h8rue\\\" sourceRef=\\\"WaitForOperation\\\" targetRef=\\\"Switch\\\" />\\n        <bpmn2:scriptTask id=\\\"AcceptPreparation\\\" name=\\\"Подготовка подтверждения регистрации\\\"\\n                          sphera:type=\\\"assignments\\\"\\n                          sphera:assignments=\\\"msg2 = &#34;Уважаемый кандидат в резиденты sphera&#10;&#10;Заявка на регистрацию организации &#34; + title.ru + &#34; принята.&#10;&#10;С уважением,&#10;Администрация sphera&#34;\\\">\\n            <bpmn2:incoming>AcceptFlow</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_0gpxbql</bpmn2:outgoing>\\n        </bpmn2:scriptTask>\\n\\n        <bpmn2:scriptTask id=\\\"RejectPreparation\\\" name=\\\"Подготовка отказа\\\"\\n                          sphera:type=\\\"assignments\\\"\\n                          sphera:assignments=\\\"msg2 = &#34;Уважаемый кандидат в резиденты sphera&#10;&#10;Заявка на регистрацию организации &#34; + title.ru + &#34; отклонена. Причина отказа:&#10;&#34; + rejectReason + &#34; &#10;&#10;С уважением,&#10;Администрация sphera&#34;\\\">\\n            <bpmn2:incoming>RejectFlow</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_1yymhp1</bpmn2:outgoing>\\n        </bpmn2:scriptTask>\\n\\n        <bpmn2:scriptTask id=\\\"AckPreparation\\\" name=\\\"Подготовка подтверждение заполнения анкеты\\\"\\n                          sphera:type=\\\"assignments\\\"\\n                          sphera:assignments=\\\"msg1 = &#34;Уважаемый кандидат в резиденты sphera&#10;&#10;Заявка на регистрацию организации &#34; + title.ru + &#34; получена и будет рассмотрена в течении трёх дней&#10;&#10;С уважением,&#10;Администрация sphera&#34;\\\">\\n            <bpmn2:incoming>SequenceFlow_1a9y6xm</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_0lmsjus</bpmn2:outgoing>\\n        </bpmn2:scriptTask>\\n\\n    </bpmn2:process>\\n    <bpmndi:BPMNDiagram id=\\\"BPMNDiagram_1\\\">\\n        <bpmndi:BPMNPlane id=\\\"BPMNPlane_1\\\" bpmnElement=\\\"Process_1\\\">\\n            <bpmndi:BPMNShape id=\\\"_BPMNShape_StartEvent_2\\\" bpmnElement=\\\"Start\\\">\\n                <dc:Bounds x=\\\"144\\\" y=\\\"215\\\" width=\\\"36\\\" height=\\\"36\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"119\\\" y=\\\"251\\\" width=\\\"89\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_0i48jnx_di\\\" bpmnElement=\\\"SequenceFlow_0i48jnx\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"180\\\" y=\\\"233\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"222\\\" y=\\\"233\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"156\\\" y=\\\"211.5\\\" width=\\\"90\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNShape id=\\\"UserTask_1eccoz5_di\\\" bpmnElement=\\\"EnterData\\\">\\n                <dc:Bounds x=\\\"222\\\" y=\\\"193\\\" width=\\\"100\\\" height=\\\"80\\\" />\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNShape id=\\\"ExclusiveGateway_1mfuycw_di\\\" bpmnElement=\\\"Switch\\\" isMarkerVisible=\\\"true\\\">\\n                <dc:Bounds x=\\\"826\\\" y=\\\"207\\\" width=\\\"50\\\" height=\\\"50\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"880\\\" y=\\\"213\\\" width=\\\"70\\\" height=\\\"38\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_1s2y42w_di\\\" bpmnElement=\\\"AcceptFlow\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"851\\\" y=\\\"207\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"851\\\" y=\\\"137\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"930\\\" y=\\\"137\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"832\\\" y=\\\"112\\\" width=\\\"65\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_0g4wuao_di\\\" bpmnElement=\\\"RejectFlow\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"851\\\" y=\\\"257\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"851\\\" y=\\\"321\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"930\\\" y=\\\"321\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"853\\\" y=\\\"326\\\" width=\\\"30\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_1788u5t_di\\\" bpmnElement=\\\"SequenceFlow_1788u5t\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"322\\\" y=\\\"233\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"352\\\" y=\\\"233\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"337\\\" y=\\\"211.5\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNShape id=\\\"ParallelGateway_0c15cuu_di\\\" bpmnElement=\\\"Fork\\\">\\n                <dc:Bounds x=\\\"352\\\" y=\\\"208\\\" width=\\\"50\\\" height=\\\"50\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"350\\\" y=\\\"261\\\" width=\\\"55\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_1a9y6xm_di\\\" bpmnElement=\\\"SequenceFlow_1a9y6xm\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"377\\\" y=\\\"258\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"377\\\" y=\\\"340\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"413\\\" y=\\\"340\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"392\\\" y=\\\"292.5\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_0lmsjus_di\\\" bpmnElement=\\\"SequenceFlow_0lmsjus\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"513\\\" y=\\\"340\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"560\\\" y=\\\"340\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"536.5\\\" y=\\\"318.5\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNShape id=\\\"SendTask_0ypmdyf_di\\\" bpmnElement=\\\"SendAck\\\">\\n                <dc:Bounds x=\\\"560\\\" y=\\\"300\\\" width=\\\"100\\\" height=\\\"80\\\" />\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNShape id=\\\"UserTask_0zvvm1g_di\\\" bpmnElement=\\\"Validation\\\">\\n                <dc:Bounds x=\\\"507\\\" y=\\\"77\\\" width=\\\"100\\\" height=\\\"80\\\" />\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_1oxge9f_di\\\" bpmnElement=\\\"SequenceFlow_1oxge9f\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"377\\\" y=\\\"208\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"377\\\" y=\\\"117\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"507\\\" y=\\\"117\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"392\\\" y=\\\"156\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_0gpxbql_di\\\" bpmnElement=\\\"SequenceFlow_0gpxbql\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1030\\\" y=\\\"137\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1090\\\" y=\\\"137\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"1060\\\" y=\\\"115.5\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNShape id=\\\"SendTask_1rdkmoa_di\\\" bpmnElement=\\\"SendAccept\\\">\\n                <dc:Bounds x=\\\"1090\\\" y=\\\"97\\\" width=\\\"100\\\" height=\\\"80\\\" />\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_1yymhp1_di\\\" bpmnElement=\\\"SequenceFlow_1yymhp1\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1030\\\" y=\\\"321\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1090\\\" y=\\\"321\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"1060\\\" y=\\\"299.5\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNShape id=\\\"SendTask_016qoku_di\\\" bpmnElement=\\\"SendReject\\\">\\n                <dc:Bounds x=\\\"1090\\\" y=\\\"281\\\" width=\\\"100\\\" height=\\\"80\\\" />\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNShape id=\\\"EndEvent_0te66no_di\\\" bpmnElement=\\\"End\\\">\\n                <dc:Bounds x=\\\"1332.5995024875622\\\" y=\\\"214\\\" width=\\\"36\\\" height=\\\"36\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"1320\\\" y=\\\"253\\\" width=\\\"64\\\" height=\\\"25\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_1ldp9mp_di\\\" bpmnElement=\\\"SequenceFlow_1ldp9mp\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1190\\\" y=\\\"321\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1261\\\" y=\\\"321\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1261\\\" y=\\\"232\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1333\\\" y=\\\"232\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"1276\\\" y=\\\"270\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_0hv7c81_di\\\" bpmnElement=\\\"SequenceFlow_0hv7c81\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1190\\\" y=\\\"137\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1261\\\" y=\\\"137\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1261\\\" y=\\\"232\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1333\\\" y=\\\"232\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"1276\\\" y=\\\"177.5\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_0u1pgc6_di\\\" bpmnElement=\\\"SequenceFlow_0u1pgc6\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"607\\\" y=\\\"117\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"734\\\" y=\\\"117\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"734\\\" y=\\\"209\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"670.5\\\" y=\\\"95.5\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNShape id=\\\"ParallelGateway_1n9hbj9_di\\\" bpmnElement=\\\"WaitForOperation\\\">\\n                <dc:Bounds x=\\\"710\\\" y=\\\"208\\\" width=\\\"50\\\" height=\\\"50\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"700\\\" y=\\\"261\\\" width=\\\"71\\\" height=\\\"25\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_1lknq96_di\\\" bpmnElement=\\\"SequenceFlow_1lknq96\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"660\\\" y=\\\"340\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"735\\\" y=\\\"340\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"735\\\" y=\\\"258\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"697.5\\\" y=\\\"318\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_17h8rue_di\\\" bpmnElement=\\\"SequenceFlow_17h8rue\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"760\\\" y=\\\"233\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"826\\\" y=\\\"232\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"793\\\" y=\\\"211\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNShape id=\\\"ScriptTask_0axdhfo_di\\\" bpmnElement=\\\"AcceptPreparation\\\">\\n                <dc:Bounds x=\\\"930\\\" y=\\\"97\\\" width=\\\"100\\\" height=\\\"80\\\" />\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNShape id=\\\"ScriptTask_0cnpe5l_di\\\" bpmnElement=\\\"RejectPreparation\\\">\\n                <dc:Bounds x=\\\"930\\\" y=\\\"281\\\" width=\\\"100\\\" height=\\\"80\\\" />\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNShape id=\\\"ScriptTask_09ysssw_di\\\" bpmnElement=\\\"AckPreparation\\\">\\n                <dc:Bounds x=\\\"413\\\" y=\\\"300\\\" width=\\\"100\\\" height=\\\"80\\\" />\\n            </bpmndi:BPMNShape>\\n        </bpmndi:BPMNPlane>\\n    </bpmndi:BPMNDiagram>\\n</bpmn2:definitions>\",\n  \"dataStructureId\" : \"083502ab-2f29-4b1a-a64c-25453ec86c0f\",\n  \"roleDefinitions\" : {\n    \n  },\n  \"classification\" : {\n    \n  },\n  \"userId\" : \"7fc9ad26-65f2-495c-953f-10d64fcc2dc4\"\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"url": "http://localhost:9000/bpm/api/masterData/processTemplates",
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-Token",
+										"value": "::OXY:BPM:EN"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\" : \"7b1a8e88-3085-43b3-8fff-a187276e6a4f\",\n  \"name\" : \"name\",\n  \"description\" : null,\n  \"sourceCode\" : \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\\n<bpmn2:definitions xmlns:xsi=\\\"http://www.w3.org/2001/XMLSchema-instance\\\" xmlns:bpmn2=\\\"http://www.omg.org/spec/BPMN/20100524/MODEL\\\" xmlns:bpmndi=\\\"http://www.omg.org/spec/BPMN/20100524/DI\\\" xmlns:dc=\\\"http://www.omg.org/spec/DD/20100524/DC\\\" xmlns:di=\\\"http://www.omg.org/spec/DD/20100524/DI\\\" xmlns:sphera=\\\"http://sphera\\\" id=\\\"sample-diagram\\\" targetNamespace=\\\"http://bpmn.io/schema/bpmn\\\" xsi:schemaLocation=\\\"http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd\\\">\\n    <bpmn2:process id=\\\"Process_1\\\" isExecutable=\\\"false\\\">\\n        <bpmn2:startEvent id=\\\"Start\\\" name=\\\"Начало процесса\\\">\\n            <bpmn2:outgoing>SequenceFlow_0i48jnx</bpmn2:outgoing>\\n        </bpmn2:startEvent>\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_0i48jnx\\\" sourceRef=\\\"Start\\\" targetRef=\\\"EnterData\\\" />\\n\\n        <bpmn2:userTask id=\\\"EnterData\\\" name=\\\"Ввод анкеты\\\"\\n            sphera:formTemplateId=\\\"32c900c2-c00e-48a8-9edd-6e205fda1117\\\"\\n            sphera:ownerId=\\\"9ab9eaf2-1f50-4c67-b253-e6c77a26eb95\\\"\\n            sphera:watcherIds=\\\"9ab9eaf2-1f50-4c67-b253-e6c77a26eb95,e3ea6923-132c-4a06-998e-5738688789e2\\\"\\n            sphera:role=\\\"candidate\\\"\\n\\n            sphera:importAssignments=\\\"\\n                $form.company = company,\\n                $form.title = title,\\n                $form.employees = employees,\\n                $form.phone = phone,\\n                $form.email = email\\\"\\n\\n            sphera:exportAssignments=\\\"\\n                company = $form.company,\\n                title = $form.title,\\n                employees = $form.employees,\\n                phone = $form.phone,\\n                email = $form.email\\\">\\n\\n            <bpmn2:documentation>documentation field</bpmn2:documentation>\\n            <bpmn2:incoming>SequenceFlow_0i48jnx</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_1788u5t</bpmn2:outgoing>\\n        </bpmn2:userTask>\\n\\n        <bpmn2:exclusiveGateway id=\\\"Switch\\\" name=\\\"Ветвление по результатам проверки\\\" default=\\\"RejectFlow\\\">\\n            <bpmn2:incoming>SequenceFlow_17h8rue</bpmn2:incoming>\\n            <bpmn2:outgoing>AcceptFlow</bpmn2:outgoing>\\n            <bpmn2:outgoing>RejectFlow</bpmn2:outgoing>\\n        </bpmn2:exclusiveGateway>\\n\\n        <bpmn2:sequenceFlow id=\\\"AcceptFlow\\\" name=\\\"Регистрация\\\" sourceRef=\\\"Switch\\\" targetRef=\\\"AcceptPreparation\\\" sphera:expression=\\\" approved == true\\\"/>\\n        <bpmn2:sequenceFlow id=\\\"RejectFlow\\\" name=\\\"Отказ\\\" sourceRef=\\\"Switch\\\" targetRef=\\\"RejectPreparation\\\" />\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_1788u5t\\\" sourceRef=\\\"EnterData\\\" targetRef=\\\"Fork\\\" />\\n\\n        <bpmn2:parallelGateway id=\\\"Fork\\\" name=\\\"Ветвление\\\">\\n            <bpmn2:incoming>SequenceFlow_1788u5t</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_1a9y6xm</bpmn2:outgoing>\\n            <bpmn2:outgoing>SequenceFlow_1oxge9f</bpmn2:outgoing>\\n        </bpmn2:parallelGateway>\\n\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_1a9y6xm\\\" sourceRef=\\\"Fork\\\" targetRef=\\\"AckPreparation\\\" />\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_0lmsjus\\\" sourceRef=\\\"AckPreparation\\\" targetRef=\\\"SendAck\\\" />\\n\\n        <bpmn2:sendTask id=\\\"SendAck\\\" name=\\\"Отправка подтверждения\\\"\\n                        sphera:type=\\\"mail\\\"\\n                        sphera:addresses=\\\"email\\\"\\n                        sphera:subject=\\\"&#34;Регистрация в sphera&#34;\\\"\\n                        sphera:message=\\\"msg1\\\">\\n            <bpmn2:incoming>SequenceFlow_0lmsjus</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_1lknq96</bpmn2:outgoing>\\n        </bpmn2:sendTask>\\n\\n        <bpmn2:userTask id=\\\"Validation\\\" name=\\\"Проверка анкеты\\\"\\n         sphera:formTemplateId=\\\"6ba8aad7-9008-4662-aa58-a472a92d6184\\\"\\n         sphera:ownerId=\\\"e3ea6923-132c-4a06-998e-5738688789e2\\\"\\n         sphera:role=\\\"checkingUser\\\"\\n\\n         sphera:importAssignments=\\\"\\n                $form.approved = approved,\\n                $form.rejectReason = rejectReason,\\n                $form.filledForm.company = company,\\n                $form.filledForm.title = title,\\n                $form.filledForm.employees = employees,\\n                $form.filledForm.phone = phone,\\n                $form.filledForm.email = email\\\"\\n\\n         sphera:exportAssignments=\\\"\\n                approved = $form.approved,\\n                rejectReason = $form.rejectReason\\\">\\n\\n            <bpmn2:incoming>SequenceFlow_1oxge9f</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_0u1pgc6</bpmn2:outgoing>\\n        </bpmn2:userTask>\\n\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_1oxge9f\\\" sourceRef=\\\"Fork\\\" targetRef=\\\"Validation\\\" />\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_0gpxbql\\\" sourceRef=\\\"AcceptPreparation\\\" targetRef=\\\"SendAccept\\\" />\\n        <bpmn2:sendTask id=\\\"SendAccept\\\" name=\\\"Отправка подтверждения регистрации\\\"\\n                        sphera:type=\\\"mail\\\"\\n                        sphera:addresses=\\\"email\\\"\\n                        sphera:subject=\\\"&#34;Подтверждение регистрации в sphera&#34;\\\"\\n                        sphera:message=\\\"msg2\\\">\\n            <bpmn2:incoming>SequenceFlow_0gpxbql</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_0hv7c81</bpmn2:outgoing>\\n        </bpmn2:sendTask>\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_1yymhp1\\\" sourceRef=\\\"RejectPreparation\\\" targetRef=\\\"SendReject\\\" />\\n\\n        <bpmn2:sendTask id=\\\"SendReject\\\" name=\\\"Отправка отказа\\\"\\n                        sphera:type=\\\"mail\\\"\\n                        sphera:addresses=\\\"email\\\"\\n                        sphera:subject=\\\"&#34;Отказ регистрации в sphera&#34;\\\"\\n                        sphera:message=\\\"msg2\\\">\\n            <bpmn2:incoming>SequenceFlow_1yymhp1</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_1ldp9mp</bpmn2:outgoing>\\n        </bpmn2:sendTask>\\n\\n        <bpmn2:endEvent id=\\\"End\\\" name=\\\"Завершение процесса\\\">\\n            <bpmn2:incoming>SequenceFlow_1ldp9mp</bpmn2:incoming>\\n            <bpmn2:incoming>SequenceFlow_0hv7c81</bpmn2:incoming>\\n        </bpmn2:endEvent>\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_1ldp9mp\\\" sourceRef=\\\"SendReject\\\" targetRef=\\\"End\\\" />\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_0hv7c81\\\" sourceRef=\\\"SendAccept\\\" targetRef=\\\"End\\\" />\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_0u1pgc6\\\" sourceRef=\\\"Validation\\\" targetRef=\\\"WaitForOperation\\\" />\\n\\n        <bpmn2:parallelGateway id=\\\"WaitForOperation\\\" name=\\\"Объединение потоков\\\">\\n            <bpmn2:incoming>SequenceFlow_0u1pgc6</bpmn2:incoming>\\n            <bpmn2:incoming>SequenceFlow_1lknq96</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_17h8rue</bpmn2:outgoing>\\n        </bpmn2:parallelGateway>\\n\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_1lknq96\\\" sourceRef=\\\"SendAck\\\" targetRef=\\\"WaitForOperation\\\" />\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_17h8rue\\\" sourceRef=\\\"WaitForOperation\\\" targetRef=\\\"Switch\\\" />\\n        <bpmn2:scriptTask id=\\\"AcceptPreparation\\\" name=\\\"Подготовка подтверждения регистрации\\\"\\n                          sphera:type=\\\"assignments\\\"\\n                          sphera:assignments=\\\"msg2 = &#34;Уважаемый кандидат в резиденты sphera&#10;&#10;Заявка на регистрацию организации &#34; + title.ru + &#34; принята.&#10;&#10;С уважением,&#10;Администрация sphera&#34;\\\">\\n            <bpmn2:incoming>AcceptFlow</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_0gpxbql</bpmn2:outgoing>\\n        </bpmn2:scriptTask>\\n\\n        <bpmn2:scriptTask id=\\\"RejectPreparation\\\" name=\\\"Подготовка отказа\\\"\\n                          sphera:type=\\\"assignments\\\"\\n                          sphera:assignments=\\\"msg2 = &#34;Уважаемый кандидат в резиденты sphera&#10;&#10;Заявка на регистрацию организации &#34; + title.ru + &#34; отклонена. Причина отказа:&#10;&#34; + rejectReason + &#34; &#10;&#10;С уважением,&#10;Администрация sphera&#34;\\\">\\n            <bpmn2:incoming>RejectFlow</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_1yymhp1</bpmn2:outgoing>\\n        </bpmn2:scriptTask>\\n\\n        <bpmn2:scriptTask id=\\\"AckPreparation\\\" name=\\\"Подготовка подтверждение заполнения анкеты\\\"\\n                          sphera:type=\\\"assignments\\\"\\n                          sphera:assignments=\\\"msg1 = &#34;Уважаемый кандидат в резиденты sphera&#10;&#10;Заявка на регистрацию организации &#34; + title.ru + &#34; получена и будет рассмотрена в течении трёх дней&#10;&#10;С уважением,&#10;Администрация sphera&#34;\\\">\\n            <bpmn2:incoming>SequenceFlow_1a9y6xm</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_0lmsjus</bpmn2:outgoing>\\n        </bpmn2:scriptTask>\\n\\n    </bpmn2:process>\\n    <bpmndi:BPMNDiagram id=\\\"BPMNDiagram_1\\\">\\n        <bpmndi:BPMNPlane id=\\\"BPMNPlane_1\\\" bpmnElement=\\\"Process_1\\\">\\n            <bpmndi:BPMNShape id=\\\"_BPMNShape_StartEvent_2\\\" bpmnElement=\\\"Start\\\">\\n                <dc:Bounds x=\\\"144\\\" y=\\\"215\\\" width=\\\"36\\\" height=\\\"36\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"119\\\" y=\\\"251\\\" width=\\\"89\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_0i48jnx_di\\\" bpmnElement=\\\"SequenceFlow_0i48jnx\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"180\\\" y=\\\"233\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"222\\\" y=\\\"233\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"156\\\" y=\\\"211.5\\\" width=\\\"90\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNShape id=\\\"UserTask_1eccoz5_di\\\" bpmnElement=\\\"EnterData\\\">\\n                <dc:Bounds x=\\\"222\\\" y=\\\"193\\\" width=\\\"100\\\" height=\\\"80\\\" />\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNShape id=\\\"ExclusiveGateway_1mfuycw_di\\\" bpmnElement=\\\"Switch\\\" isMarkerVisible=\\\"true\\\">\\n                <dc:Bounds x=\\\"826\\\" y=\\\"207\\\" width=\\\"50\\\" height=\\\"50\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"880\\\" y=\\\"213\\\" width=\\\"70\\\" height=\\\"38\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_1s2y42w_di\\\" bpmnElement=\\\"AcceptFlow\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"851\\\" y=\\\"207\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"851\\\" y=\\\"137\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"930\\\" y=\\\"137\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"832\\\" y=\\\"112\\\" width=\\\"65\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_0g4wuao_di\\\" bpmnElement=\\\"RejectFlow\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"851\\\" y=\\\"257\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"851\\\" y=\\\"321\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"930\\\" y=\\\"321\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"853\\\" y=\\\"326\\\" width=\\\"30\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_1788u5t_di\\\" bpmnElement=\\\"SequenceFlow_1788u5t\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"322\\\" y=\\\"233\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"352\\\" y=\\\"233\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"337\\\" y=\\\"211.5\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNShape id=\\\"ParallelGateway_0c15cuu_di\\\" bpmnElement=\\\"Fork\\\">\\n                <dc:Bounds x=\\\"352\\\" y=\\\"208\\\" width=\\\"50\\\" height=\\\"50\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"350\\\" y=\\\"261\\\" width=\\\"55\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_1a9y6xm_di\\\" bpmnElement=\\\"SequenceFlow_1a9y6xm\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"377\\\" y=\\\"258\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"377\\\" y=\\\"340\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"413\\\" y=\\\"340\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"392\\\" y=\\\"292.5\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_0lmsjus_di\\\" bpmnElement=\\\"SequenceFlow_0lmsjus\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"513\\\" y=\\\"340\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"560\\\" y=\\\"340\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"536.5\\\" y=\\\"318.5\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNShape id=\\\"SendTask_0ypmdyf_di\\\" bpmnElement=\\\"SendAck\\\">\\n                <dc:Bounds x=\\\"560\\\" y=\\\"300\\\" width=\\\"100\\\" height=\\\"80\\\" />\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNShape id=\\\"UserTask_0zvvm1g_di\\\" bpmnElement=\\\"Validation\\\">\\n                <dc:Bounds x=\\\"507\\\" y=\\\"77\\\" width=\\\"100\\\" height=\\\"80\\\" />\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_1oxge9f_di\\\" bpmnElement=\\\"SequenceFlow_1oxge9f\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"377\\\" y=\\\"208\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"377\\\" y=\\\"117\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"507\\\" y=\\\"117\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"392\\\" y=\\\"156\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_0gpxbql_di\\\" bpmnElement=\\\"SequenceFlow_0gpxbql\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1030\\\" y=\\\"137\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1090\\\" y=\\\"137\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"1060\\\" y=\\\"115.5\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNShape id=\\\"SendTask_1rdkmoa_di\\\" bpmnElement=\\\"SendAccept\\\">\\n                <dc:Bounds x=\\\"1090\\\" y=\\\"97\\\" width=\\\"100\\\" height=\\\"80\\\" />\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_1yymhp1_di\\\" bpmnElement=\\\"SequenceFlow_1yymhp1\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1030\\\" y=\\\"321\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1090\\\" y=\\\"321\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"1060\\\" y=\\\"299.5\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNShape id=\\\"SendTask_016qoku_di\\\" bpmnElement=\\\"SendReject\\\">\\n                <dc:Bounds x=\\\"1090\\\" y=\\\"281\\\" width=\\\"100\\\" height=\\\"80\\\" />\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNShape id=\\\"EndEvent_0te66no_di\\\" bpmnElement=\\\"End\\\">\\n                <dc:Bounds x=\\\"1332.5995024875622\\\" y=\\\"214\\\" width=\\\"36\\\" height=\\\"36\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"1320\\\" y=\\\"253\\\" width=\\\"64\\\" height=\\\"25\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_1ldp9mp_di\\\" bpmnElement=\\\"SequenceFlow_1ldp9mp\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1190\\\" y=\\\"321\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1261\\\" y=\\\"321\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1261\\\" y=\\\"232\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1333\\\" y=\\\"232\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"1276\\\" y=\\\"270\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_0hv7c81_di\\\" bpmnElement=\\\"SequenceFlow_0hv7c81\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1190\\\" y=\\\"137\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1261\\\" y=\\\"137\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1261\\\" y=\\\"232\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1333\\\" y=\\\"232\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"1276\\\" y=\\\"177.5\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_0u1pgc6_di\\\" bpmnElement=\\\"SequenceFlow_0u1pgc6\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"607\\\" y=\\\"117\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"734\\\" y=\\\"117\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"734\\\" y=\\\"209\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"670.5\\\" y=\\\"95.5\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNShape id=\\\"ParallelGateway_1n9hbj9_di\\\" bpmnElement=\\\"WaitForOperation\\\">\\n                <dc:Bounds x=\\\"710\\\" y=\\\"208\\\" width=\\\"50\\\" height=\\\"50\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"700\\\" y=\\\"261\\\" width=\\\"71\\\" height=\\\"25\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_1lknq96_di\\\" bpmnElement=\\\"SequenceFlow_1lknq96\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"660\\\" y=\\\"340\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"735\\\" y=\\\"340\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"735\\\" y=\\\"258\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"697.5\\\" y=\\\"318\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_17h8rue_di\\\" bpmnElement=\\\"SequenceFlow_17h8rue\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"760\\\" y=\\\"233\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"826\\\" y=\\\"232\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"793\\\" y=\\\"211\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNShape id=\\\"ScriptTask_0axdhfo_di\\\" bpmnElement=\\\"AcceptPreparation\\\">\\n                <dc:Bounds x=\\\"930\\\" y=\\\"97\\\" width=\\\"100\\\" height=\\\"80\\\" />\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNShape id=\\\"ScriptTask_0cnpe5l_di\\\" bpmnElement=\\\"RejectPreparation\\\">\\n                <dc:Bounds x=\\\"930\\\" y=\\\"281\\\" width=\\\"100\\\" height=\\\"80\\\" />\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNShape id=\\\"ScriptTask_09ysssw_di\\\" bpmnElement=\\\"AckPreparation\\\">\\n                <dc:Bounds x=\\\"413\\\" y=\\\"300\\\" width=\\\"100\\\" height=\\\"80\\\" />\\n            </bpmndi:BPMNShape>\\n        </bpmndi:BPMNPlane>\\n    </bpmndi:BPMNDiagram>\\n</bpmn2:definitions>\",\n  \"dataStructureId\" : \"3d0485ef-48b3-48eb-98b5-877868a8c3a6\",\n  \"roleDefinitions\" : {\n    \n  },\n  \"classification\" : {\n    \n  },\n  \"userId\" : \"7fc9ad26-65f2-495c-953f-10d64fcc2dc4\"\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"url": "http://localhost:9000/bpm/api/masterData/processTemplates/{{processTemplateId}}",
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "X-Token",
+										"value": "::OXY:BPM:EN"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "dataStructures",
+					"description": "",
+					"item": [
+						{
+							"name": "Get all",
+							"request": {
+								"url": "http://localhost:9000/bpm/api/masterData/dataStructures/",
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Token",
+										"value": "::OXY:BPM:EN"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"url": "http://localhost:9000/bpm/api/masterData/dataStructures",
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-Token",
+										"value": "::OXY:BPM:EN"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\" : \"36f0fc74-5145-47f0-b827-d0bf4af4b4ef\",\n  \"name\" : \"secretary\",\n  \"description\" : null,\n  \"elements\" : {\n    \"firstname\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"firstname\",\n        \"description\" : null,\n        \"defaultValue\" : \"FirstName\"\n      }\n    },\n    \"lastname\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"lastname\",\n        \"description\" : null,\n        \"defaultValue\" : \"LastName\"\n      }\n    },\n    \"middlename\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"middlename\",\n        \"description\" : null,\n        \"defaultValue\" : \"MiddleName\"\n      }\n    },\n    \"changeable\" : {\n      \"BooleanDataStructureElement\" : {\n        \"name\" : \"changeable\",\n        \"description\" : null,\n        \"defaultValue\" : true\n      }\n    }\n  },\n  \"userId\" : \"42c8fb2e-af56-42fb-a38d-50c2a8e85809\"\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"url": "http://localhost:9000/bpm/api/masterData/dataStructures/{{processTemplateId}}",
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "X-Token",
+										"value": "::OXY:BPM:EN"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\" : \"083502ab-2f29-4b1a-a64c-25453ec86c0f\",\n  \"name\" : \"Process data structure A\",\n  \"description\" : null,\n  \"elements\" : {\n    \"secretary\" : {\n      \"ObjectDataStructureElement\" : {\n        \"name\" : \"secretary\",\n        \"description\" : null,\n        \"dataStructureId\" : \"36f0fc74-5145-47f0-b827-d0bf4af4b4ef\"\n      }\n    },\n    \"rejectReason\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"rejectReason\",\n        \"description\" : null,\n        \"defaultValue\" : null\n      }\n    },\n    \"email\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"email\",\n        \"description\" : null,\n        \"defaultValue\" : null\n      }\n    },\n    \"msg2\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"msg2\",\n        \"description\" : null,\n        \"defaultValue\" : null\n      }\n    },\n    \"users\" : {\n      \"ObjectDataStructureElement\" : {\n        \"name\" : \"users\",\n        \"description\" : null,\n        \"dataStructureId\" : \"39e6420a-01de-4c63-972f-a461142b8702\"\n      }\n    },\n    \"employees\" : {\n      \"DecimalDataStructureElement\" : {\n        \"name\" : \"employees\",\n        \"description\" : null,\n        \"defaultValue\" : 10\n      }\n    },\n    \"files\" : {\n      \"ObjectDataStructureElement\" : {\n        \"name\" : \"files\",\n        \"description\" : null,\n        \"dataStructureId\" : \"81a7ac2f-4068-4874-8796-3ede8eff0033\"\n      }\n    },\n    \"company\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"company\",\n        \"description\" : null,\n        \"defaultValue\" : null\n      }\n    },\n    \"comment\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"comment\",\n        \"description\" : null,\n        \"defaultValue\" : \"updated\"\n      }\n    },\n    \"msg1\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"msg1\",\n        \"description\" : null,\n        \"defaultValue\" : null\n      }\n    },\n    \"title\" : {\n      \"MLStringDataStructureElement\" : {\n        \"name\" : \"title\",\n        \"description\" : null,\n        \"dataStructureId\" : \"6bbd2653-adf8-4a1c-aaa2-935887612ab1\"\n      }\n    },\n    \"changeable\" : {\n      \"BooleanDataStructureElement\" : {\n        \"name\" : \"changeable\",\n        \"description\" : null,\n        \"defaultValue\" : true\n      }\n    },\n    \"approved\" : {\n      \"BooleanDataStructureElement\" : {\n        \"name\" : \"approved\",\n        \"description\" : null,\n        \"defaultValue\" : null\n      }\n    },\n    \"phone\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"phone\",\n        \"description\" : null,\n        \"defaultValue\" : null\n      }\n    }\n  },\n  \"userId\" : \"983bf3bf-56ff-4ed1-88b1-16ade93f7fba\"\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "formTemplates",
+					"description": "",
+					"item": [
+						{
+							"name": "Get all",
+							"request": {
+								"url": "http://localhost:9000/bpm/api/masterData/formTemplates",
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Token",
+										"value": "::OXY:BPM:EN"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"url": "http://localhost:9000/bpm/api/masterData/formTemplates",
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-Token",
+										"value": "::OXY:BPM:EN"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\" : \"32c900c2-c00e-48a8-9edd-6e205fda1117\",\n  \"name\" : \"formTemplateA\",\n  \"description\" : null,\n  \"dataStructureId\" : \"32c900c2-c00e-48a8-9edd-6e205fda1117\",\n  \"formStructure\" : {\n    \"caption\" : {\n      \"strings\" : {\n        \"en\" : \"stri1\"\n      }\n    },\n    \"description\" : {\n      \"strings\" : {\n        \"en\" : \"stri2\"\n      }\n    },\n    \"mainPanel\" : {\n      \"caption\" : {\n        \"strings\" : {\n          \"en\" : \"stri3\"\n        }\n      },\n      \"description\" : {\n        \"strings\" : {\n          \"en\" : \"stri4\"\n        }\n      },\n      \"sections\" : [\n        {\n          \"caption\" : {\n            \"strings\" : {\n              \"en\" : \"stri5\"\n            }\n          },\n          \"description\" : {\n            \"strings\" : {\n              \"en\" : \"stri6\"\n            }\n          },\n          \"showCaption\" : false,\n          \"transitionAttr\" : false,\n          \"items\" : [\n            {\n              \"ColumnsLayout\" : {\n                \"columns\" : [\n                  {\n                    \"percent\" : 100.0,\n                    \"items\" : [\n                      {\n                        \"SaveButton\" : {\n                          \"caption\" : {\n                            \"strings\" : {\n                              \"en\" : \"stri7\"\n                            }\n                          },\n                          \"description\" : {\n                            \"strings\" : {\n                              \"en\" : \"stri8\"\n                            }\n                          }\n                        }\n                      }\n                    ]\n                  }\n                ]\n              }\n            }\n          ]\n        }\n      ]\n    },\n    \"leftPanel\" : {\n      \"fixed\" : false,\n      \"items\" : [\n      ]\n    },\n    \"rightPanel\" : {\n      \"fixed\" : false,\n      \"items\" : [\n      ]\n    }\n  },\n  \"userId\" : \"3e74f39f-1844-4d01-833b-dac06aa8ca2c\",\n  \"modifyAttr\" : {\n    \"createdBy\" : \"3e74f39f-1844-4d01-833b-dac06aa8ca2c\",\n    \"createdOn\" : \"2017-11-20T23:37:56.52+03:00[Europe/Moscow]\",\n    \"updatedBy\" : null,\n    \"updatedOn\" : null\n  }\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "projectTemplates",
+					"description": "",
+					"item": [
+						{
+							"name": "Get all",
+							"request": {
+								"url": "http://localhost:9000/bpm/api/masterData/projectTemplates",
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Token",
+										"value": "::OXY:BPM:EN"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"url": "http://localhost:9000/bpm/api/masterData/projectTemplates",
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-Token",
+										"value": "::OXY:BPM:EN",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\" : \"2726e9b5-0b8b-40a4-a32b-d4bfef0b91a9\",\n  \"name\" : \"ds-i13\",\n  \"description\" : \"desc-i13\",\n  \"dataStructureId\" : \"083502ab-2f29-4b1a-a64c-25453ec86c0f\",\n  \"roleDefinitions\" : {\n    \n  },\n  \"userId\" : \"140de2ff-1cdd-4ee6-a442-54710dc96245\"\n}"
+								},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "notifications",
+			"description": "",
+			"item": [
+				{
+					"name": "Create [email]",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/notifications",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\" : \"david.kantemirov@s.com\",\n  \"subject\" : \"Нет блокирующих операций как в среде\",\n  \"message\" : \"Нет блокирующих операций как в среде\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create [sms]",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/notifications",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"phone\" : \"+79166690153\",\n  \"subject\" : \"lfbxqa6aqc\",\n  \"message\" : \"qrvoqnfuva\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "verifications",
+			"description": "",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"pm.environment.set(\"verificationId\", jsonData.entityId);",
+									"",
+									"pm.test(\"Status code is 202\", function () {",
+									"    pm.response.to.have.status(202);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/verifications/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"phone\" : \"+79166621213\",\n  \"subject\" : \"vvorezwmgp\",\n  \"message\" : \"43deoikqah\",\n  \"code\" : \"5173\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Verify",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/verifications/{{verificationId}}",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\"5173\""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ResidentRegistrationProcess",
+			"description": "",
+			"item": [
+				{
+					"name": "Create dataStructure [secretary]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/masterData/dataStructures",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\" : \"36f0fc74-5145-47f0-b827-d0bf4af4b4ef\",\n  \"name\" : \"secretary\",\n  \"description\" : null,\n  \"elements\" : {\n    \"firstname\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"firstname\",\n        \"description\" : null,\n        \"defaultValue\" : \"FirstName\"\n      }\n    },\n    \"lastname\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"lastname\",\n        \"description\" : null,\n        \"defaultValue\" : \"LastName\"\n      }\n    },\n    \"middlename\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"middlename\",\n        \"description\" : null,\n        \"defaultValue\" : \"MiddleName\"\n      }\n    },\n    \"changeable\" : {\n      \"BooleanDataStructureElement\" : {\n        \"name\" : \"changeable\",\n        \"description\" : null,\n        \"defaultValue\" : true\n      }\n    }\n  },\n  \"userId\" : \"42c8fb2e-af56-42fb-a38d-50c2a8e85809\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create dataStructure [users]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/masterData/dataStructures",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\" : \"de0a964d-f6b1-4476-8332-c9abf9a205e1\",\n  \"name\" : \"userA\",\n  \"description\" : null,\n  \"elements\" : {\n    \"email\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"email\",\n        \"description\" : null,\n        \"defaultValue\" : null\n      }\n    },\n    \"firstname\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"firstname\",\n        \"description\" : null,\n        \"defaultValue\" : null\n      }\n    },\n    \"middlename\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"middlename\",\n        \"description\" : null,\n        \"defaultValue\" : null\n      }\n    },\n    \"lastname\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"lastname\",\n        \"description\" : null,\n        \"defaultValue\" : null\n      }\n    },\n    \"phone\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"phone\",\n        \"description\" : null,\n        \"defaultValue\" : null\n      }\n    }\n  },\n  \"userId\" : \"67c41a7f-ec43-4cc2-a06b-1b2bec88decf\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create dataStructure [files]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/masterData/dataStructures",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\" : \"50bde825-671c-4dea-a7ed-04a063483592\",\n  \"name\" : \"files\",\n  \"description\" : null,\n  \"elements\" : {\n    \"reportA\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"reportA\",\n        \"description\" : null,\n        \"defaultValue\" : \"yyg4edq8.docx\"\n      }\n    },\n    \"reportB\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"reportB\",\n        \"description\" : null,\n        \"defaultValue\" : \"u4x54by6.docx\"\n      }\n    },\n    \"reportC\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"reportC\",\n        \"description\" : null,\n        \"defaultValue\" : \"qj4siol8.docx\"\n      }\n    },\n    \"reportD\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"reportD\",\n        \"description\" : null,\n        \"defaultValue\" : \"gww1wi7v.docx\"\n      }\n    }\n  },\n  \"userId\" : \"0025136a-505d-4769-b009-7e62701a8e26\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create dataStructure [title]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/masterData/dataStructures",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\" : \"0f830483-51bc-4e9a-822e-d33d53ea1c73\",\n  \"name\" : \"title\",\n  \"description\" : null,\n  \"elements\" : {\n    \"ru\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"ru\",\n        \"description\" : null,\n        \"defaultValue\" : \"Название\"\n      }\n    },\n    \"en\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"en\",\n        \"description\" : null,\n        \"defaultValue\" : \"Title\"\n      }\n    }\n  },\n  \"userId\" : \"0198c8d7-08ed-4a70-bec7-e54fcea2f612\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create dataStructure [Form EnterData]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/masterData/dataStructures/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\" : \"32c900c2-c00e-48a8-9edd-6e205fda1117\",\n  \"name\" : \"Form resident registration data structure\",\n  \"description\" : null,\n  \"elements\" : {\n    \"email\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"email\",\n        \"description\" : null,\n        \"defaultValue\" : null\n      }\n    },\n    \"employees\" : {\n      \"DecimalDataStructureElement\" : {\n        \"name\" : \"employees\",\n        \"description\" : null,\n        \"defaultValue\" : 10\n      }\n    },\n    \"company\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"company\",\n        \"description\" : null,\n        \"defaultValue\" : null\n      }\n    },\n    \"title\" : {\n      \"MLStringDataStructureElement\" : {\n        \"name\" : \"title\",\n        \"description\" : null,\n        \"dataStructureId\" : \"0f830483-51bc-4e9a-822e-d33d53ea1c73\"\n      }\n    },\n    \"phone\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"phone\",\n        \"description\" : null,\n        \"defaultValue\" : null\n      }\n    }\n  },\n  \"userId\" : \"181b472e-59be-4f38-b8ac-446420905306\"\n}\n"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create dataStructure [Form Validation]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/masterData/dataStructures/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\" : \"6ba8aad7-9008-4662-aa58-a472a92d6184\",\n  \"name\" : \"Form approve data structure\",\n  \"description\" : null,\n  \"elements\" : {\n    \"approved\" : {\n      \"BooleanDataStructureElement\" : {\n        \"name\" : \"approved\",\n        \"description\" : null,\n        \"defaultValue\" : false\n      }\n    },\n    \"rejectReason\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"rejectReason\",\n        \"description\" : null,\n        \"defaultValue\" : \"reject reason\"\n      }\n    },\n    \"filledForm\" : {\n      \"ObjectDataStructureElement\" : {\n        \"name\" : \"filledForm\",\n        \"description\" : null,\n        \"dataStructureId\" : \"32c900c2-c00e-48a8-9edd-6e205fda1117\"\n      }\n    }\n  },\n  \"userId\" : \"c2c60b0b-d2d0-4096-8897-d039e64d0545\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create dataStructure [Process]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/masterData/dataStructures/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\" : \"083502ab-2f29-4b1a-a64c-25453ec86c0f\",\n  \"name\" : \"Process data structure A\",\n  \"description\" : null,\n  \"elements\" : {\n    \"secretary\" : {\n      \"ObjectDataStructureElement\" : {\n        \"name\" : \"secretary\",\n        \"description\" : null,\n        \"dataStructureId\" : \"36f0fc74-5145-47f0-b827-d0bf4af4b4ef\"\n      }\n    },\n    \"rejectReason\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"rejectReason\",\n        \"description\" : null,\n        \"defaultValue\" : null\n      }\n    },\n    \"email\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"email\",\n        \"description\" : null,\n        \"defaultValue\" : null\n      }\n    },\n    \"msg2\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"msg2\",\n        \"description\" : null,\n        \"defaultValue\" : null\n      }\n    },\n    \"users\" : {\n      \"ObjectDataStructureElement\" : {\n        \"name\" : \"users\",\n        \"description\" : null,\n        \"dataStructureId\" : \"de0a964d-f6b1-4476-8332-c9abf9a205e1\"\n      }\n    },\n    \"employees\" : {\n      \"DecimalDataStructureElement\" : {\n        \"name\" : \"employees\",\n        \"description\" : null,\n        \"defaultValue\" : 10\n      }\n    },\n    \"files\" : {\n      \"ObjectDataStructureElement\" : {\n        \"name\" : \"files\",\n        \"description\" : null,\n        \"dataStructureId\" : \"50bde825-671c-4dea-a7ed-04a063483592\"\n      }\n    },\n    \"company\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"company\",\n        \"description\" : null,\n        \"defaultValue\" : null\n      }\n    },\n    \"comment\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"comment\",\n        \"description\" : null,\n        \"defaultValue\" : \"updated\"\n      }\n    },\n    \"msg1\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"msg1\",\n        \"description\" : null,\n        \"defaultValue\" : null\n      }\n    },\n    \"title\" : {\n      \"MLStringDataStructureElement\" : {\n        \"name\" : \"title\",\n        \"description\" : null,\n        \"dataStructureId\" : \"0f830483-51bc-4e9a-822e-d33d53ea1c73\"\n      }\n    },\n    \"changeable\" : {\n      \"BooleanDataStructureElement\" : {\n        \"name\" : \"changeable\",\n        \"description\" : null,\n        \"defaultValue\" : true\n      }\n    },\n    \"approved\" : {\n      \"BooleanDataStructureElement\" : {\n        \"name\" : \"approved\",\n        \"description\" : null,\n        \"defaultValue\" : null\n      }\n    },\n    \"phone\" : {\n      \"StringDataStructureElement\" : {\n        \"name\" : \"phone\",\n        \"description\" : null,\n        \"defaultValue\" : null\n      }\n    }\n  },\n  \"userId\" : \"983bf3bf-56ff-4ed1-88b1-16ade93f7fba\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create formTemplate [Form EnterData]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/masterData/formTemplates",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\" : \"32c900c2-c00e-48a8-9edd-6e205fda1117\",\n  \"name\" : \"formTemplateA\",\n  \"description\" : null,\n  \"dataStructureId\" : \"32c900c2-c00e-48a8-9edd-6e205fda1117\",\n  \"formStructure\" : {\n    \"caption\" : {\n      \"strings\" : {\n        \"en\" : \"stri1\"\n      }\n    },\n    \"description\" : {\n      \"strings\" : {\n        \"en\" : \"stri2\"\n      }\n    },\n    \"mainPanel\" : {\n      \"caption\" : {\n        \"strings\" : {\n          \"en\" : \"stri3\"\n        }\n      },\n      \"description\" : {\n        \"strings\" : {\n          \"en\" : \"stri4\"\n        }\n      },\n      \"sections\" : [\n        {\n          \"caption\" : {\n            \"strings\" : {\n              \"en\" : \"stri5\"\n            }\n          },\n          \"description\" : {\n            \"strings\" : {\n              \"en\" : \"stri6\"\n            }\n          },\n          \"showCaption\" : false,\n          \"transitionAttr\" : false,\n          \"items\" : [\n            {\n              \"ColumnsLayout\" : {\n                \"columns\" : [\n                  {\n                    \"percent\" : 100.0,\n                    \"items\" : [\n                      {\n                        \"SaveButton\" : {\n                          \"caption\" : {\n                            \"strings\" : {\n                              \"en\" : \"stri7\"\n                            }\n                          },\n                          \"description\" : {\n                            \"strings\" : {\n                              \"en\" : \"stri8\"\n                            }\n                          }\n                        }\n                      }\n                    ]\n                  }\n                ]\n              }\n            }\n          ]\n        }\n      ]\n    },\n    \"leftPanel\" : {\n      \"fixed\" : false,\n      \"items\" : [\n      ]\n    },\n    \"rightPanel\" : {\n      \"fixed\" : false,\n      \"items\" : [\n      ]\n    }\n  },\n  \"userId\" : \"3e74f39f-1844-4d01-833b-dac06aa8ca2c\",\n  \"modifyAttr\" : {\n    \"createdBy\" : \"3e74f39f-1844-4d01-833b-dac06aa8ca2c\",\n    \"createdOn\" : \"2017-11-20T23:37:56.52+03:00[Europe/Moscow]\",\n    \"updatedBy\" : null,\n    \"updatedOn\" : null\n  }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create formTemplate [Form Validation]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/masterData/formTemplates",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\" : \"6ba8aad7-9008-4662-aa58-a472a92d6184\",\n  \"name\" : \"formTemplateA\",\n  \"description\" : null,\n  \"dataStructureId\" : \"6ba8aad7-9008-4662-aa58-a472a92d6184\",\n  \"formStructure\" : {\n    \"caption\" : {\n      \"strings\" : {\n        \"en\" : \"stri1\"\n      }\n    },\n    \"description\" : {\n      \"strings\" : {\n        \"en\" : \"stri2\"\n      }\n    },\n    \"mainPanel\" : {\n      \"caption\" : {\n        \"strings\" : {\n          \"en\" : \"stri3\"\n        }\n      },\n      \"description\" : {\n        \"strings\" : {\n          \"en\" : \"stri4\"\n        }\n      },\n      \"sections\" : [\n        {\n          \"caption\" : {\n            \"strings\" : {\n              \"en\" : \"stri5\"\n            }\n          },\n          \"description\" : {\n            \"strings\" : {\n              \"en\" : \"stri6\"\n            }\n          },\n          \"showCaption\" : false,\n          \"transitionAttr\" : false,\n          \"items\" : [\n            {\n              \"ColumnsLayout\" : {\n                \"columns\" : [\n                  {\n                    \"percent\" : 100.0,\n                    \"items\" : [\n                      {\n                        \"SaveButton\" : {\n                          \"caption\" : {\n                            \"strings\" : {\n                              \"en\" : \"stri7\"\n                            }\n                          },\n                          \"description\" : {\n                            \"strings\" : {\n                              \"en\" : \"stri8\"\n                            }\n                          }\n                        }\n                      }\n                    ]\n                  }\n                ]\n              }\n            }\n          ]\n        }\n      ]\n    },\n    \"leftPanel\" : {\n      \"fixed\" : false,\n      \"items\" : [\n      ]\n    },\n    \"rightPanel\" : {\n      \"fixed\" : false,\n      \"items\" : [\n      ]\n    }\n  },\n  \"userId\" : \"3e74f39f-1844-4d01-833b-dac06aa8ca2c\",\n  \"modifyAttr\" : {\n    \"createdBy\" : \"3e74f39f-1844-4d01-833b-dac06aa8ca2c\",\n    \"createdOn\" : \"2017-11-20T23:37:56.52+03:00[Europe/Moscow]\",\n    \"updatedBy\" : null,\n    \"updatedOn\" : null\n  }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create processTemplate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/masterData/processTemplates",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\" : \"65deddb9-078f-4620-8159-ad7f98683144\",\n  \"name\" : \"name\",\n  \"description\" : null,\n\"sourceCode\" : \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\\n<bpmn2:definitions xmlns:xsi=\\\"http://www.w3.org/2001/XMLSchema-instance\\\" xmlns:bpmn2=\\\"http://www.omg.org/spec/BPMN/20100524/MODEL\\\" xmlns:bpmndi=\\\"http://www.omg.org/spec/BPMN/20100524/DI\\\" xmlns:dc=\\\"http://www.omg.org/spec/DD/20100524/DC\\\" xmlns:di=\\\"http://www.omg.org/spec/DD/20100524/DI\\\" xmlns:sphera=\\\"http://sphera\\\" id=\\\"sample-diagram\\\" targetNamespace=\\\"http://bpmn.io/schema/bpmn\\\" xsi:schemaLocation=\\\"http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd\\\">\\n    <bpmn2:process id=\\\"Process_1\\\" isExecutable=\\\"false\\\">\\n        <bpmn2:startEvent id=\\\"Start\\\" name=\\\"Начало процесса\\\">\\n            <bpmn2:outgoing>SequenceFlow_0i48jnx</bpmn2:outgoing>\\n        </bpmn2:startEvent>\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_0i48jnx\\\" sourceRef=\\\"Start\\\" targetRef=\\\"EnterData\\\" />\\n\\n        <bpmn2:userTask id=\\\"EnterData\\\" name=\\\"Ввод анкеты\\\"\\n            sphera:formTemplateId=\\\"32c900c2-c00e-48a8-9edd-6e205fda1117\\\"\\n            sphera:ownerId=\\\"9ab9eaf2-1f50-4c67-b253-e6c77a26eb95\\\"\\n            sphera:watcherIds=\\\"9ab9eaf2-1f50-4c67-b253-e6c77a26eb95,e3ea6923-132c-4a06-998e-5738688789e2\\\"\\n            sphera:role=\\\"candidate\\\"\\n\\n            sphera:importAssignments=\\\"\\n                $form.company = company,\\n                $form.title = title,\\n                $form.employees = employees,\\n                $form.phone = phone,\\n                $form.email = email\\\"\\n\\n            sphera:exportAssignments=\\\"\\n                company = $form.company,\\n                title = $form.title,\\n                employees = $form.employees,\\n                phone = $form.phone,\\n                email = $form.email\\\">\\n\\n            <bpmn2:documentation>documentation field</bpmn2:documentation>\\n            <bpmn2:incoming>SequenceFlow_0i48jnx</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_1788u5t</bpmn2:outgoing>\\n        </bpmn2:userTask>\\n\\n        <bpmn2:exclusiveGateway id=\\\"Switch\\\" name=\\\"Ветвление по результатам проверки\\\" default=\\\"RejectFlow\\\">\\n            <bpmn2:incoming>SequenceFlow_17h8rue</bpmn2:incoming>\\n            <bpmn2:outgoing>AcceptFlow</bpmn2:outgoing>\\n            <bpmn2:outgoing>RejectFlow</bpmn2:outgoing>\\n        </bpmn2:exclusiveGateway>\\n\\n        <bpmn2:sequenceFlow id=\\\"AcceptFlow\\\" name=\\\"Регистрация\\\" sourceRef=\\\"Switch\\\" targetRef=\\\"AcceptPreparation\\\" sphera:expression=\\\" approved == true\\\"/>\\n        <bpmn2:sequenceFlow id=\\\"RejectFlow\\\" name=\\\"Отказ\\\" sourceRef=\\\"Switch\\\" targetRef=\\\"RejectPreparation\\\" />\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_1788u5t\\\" sourceRef=\\\"EnterData\\\" targetRef=\\\"Fork\\\" />\\n\\n        <bpmn2:parallelGateway id=\\\"Fork\\\" name=\\\"Ветвление\\\">\\n            <bpmn2:incoming>SequenceFlow_1788u5t</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_1a9y6xm</bpmn2:outgoing>\\n            <bpmn2:outgoing>SequenceFlow_1oxge9f</bpmn2:outgoing>\\n        </bpmn2:parallelGateway>\\n\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_1a9y6xm\\\" sourceRef=\\\"Fork\\\" targetRef=\\\"AckPreparation\\\" />\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_0lmsjus\\\" sourceRef=\\\"AckPreparation\\\" targetRef=\\\"SendAck\\\" />\\n\\n        <bpmn2:sendTask id=\\\"SendAck\\\" name=\\\"Отправка подтверждения\\\"\\n                        sphera:type=\\\"mail\\\"\\n                        sphera:addresses=\\\"email\\\"\\n                        sphera:subject=\\\"&#34;Регистрация в sphera&#34;\\\"\\n                        sphera:message=\\\"msg1\\\">\\n            <bpmn2:incoming>SequenceFlow_0lmsjus</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_1lknq96</bpmn2:outgoing>\\n        </bpmn2:sendTask>\\n\\n        <bpmn2:userTask id=\\\"Validation\\\" name=\\\"Проверка анкеты\\\"\\n         sphera:formTemplateId=\\\"6ba8aad7-9008-4662-aa58-a472a92d6184\\\"\\n         sphera:ownerId=\\\"e3ea6923-132c-4a06-998e-5738688789e2\\\"\\n         sphera:role=\\\"checkingUser\\\"\\n\\n         sphera:importAssignments=\\\"\\n                $form.approved = approved,\\n                $form.rejectReason = rejectReason,\\n                $form.filledForm.company = company,\\n                $form.filledForm.title = title,\\n                $form.filledForm.employees = employees,\\n                $form.filledForm.phone = phone,\\n                $form.filledForm.email = email\\\"\\n\\n         sphera:exportAssignments=\\\"\\n                approved = $form.approved,\\n                rejectReason = $form.rejectReason\\\">\\n\\n            <bpmn2:incoming>SequenceFlow_1oxge9f</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_0u1pgc6</bpmn2:outgoing>\\n        </bpmn2:userTask>\\n\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_1oxge9f\\\" sourceRef=\\\"Fork\\\" targetRef=\\\"Validation\\\" />\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_0gpxbql\\\" sourceRef=\\\"AcceptPreparation\\\" targetRef=\\\"SendAccept\\\" />\\n        <bpmn2:sendTask id=\\\"SendAccept\\\" name=\\\"Отправка подтверждения регистрации\\\"\\n                        sphera:type=\\\"mail\\\"\\n                        sphera:addresses=\\\"email\\\"\\n                        sphera:subject=\\\"&#34;Подтверждение регистрации в sphera&#34;\\\"\\n                        sphera:message=\\\"msg2\\\">\\n            <bpmn2:incoming>SequenceFlow_0gpxbql</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_0hv7c81</bpmn2:outgoing>\\n        </bpmn2:sendTask>\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_1yymhp1\\\" sourceRef=\\\"RejectPreparation\\\" targetRef=\\\"SendReject\\\" />\\n\\n        <bpmn2:sendTask id=\\\"SendReject\\\" name=\\\"Отправка отказа\\\"\\n                        sphera:type=\\\"mail\\\"\\n                        sphera:addresses=\\\"email\\\"\\n                        sphera:subject=\\\"&#34;Отказ регистрации в sphera&#34;\\\"\\n                        sphera:message=\\\"msg2\\\">\\n            <bpmn2:incoming>SequenceFlow_1yymhp1</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_1ldp9mp</bpmn2:outgoing>\\n        </bpmn2:sendTask>\\n\\n        <bpmn2:endEvent id=\\\"End\\\" name=\\\"Завершение процесса\\\">\\n            <bpmn2:incoming>SequenceFlow_1ldp9mp</bpmn2:incoming>\\n            <bpmn2:incoming>SequenceFlow_0hv7c81</bpmn2:incoming>\\n        </bpmn2:endEvent>\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_1ldp9mp\\\" sourceRef=\\\"SendReject\\\" targetRef=\\\"End\\\" />\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_0hv7c81\\\" sourceRef=\\\"SendAccept\\\" targetRef=\\\"End\\\" />\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_0u1pgc6\\\" sourceRef=\\\"Validation\\\" targetRef=\\\"WaitForOperation\\\" />\\n\\n        <bpmn2:parallelGateway id=\\\"WaitForOperation\\\" name=\\\"Объединение потоков\\\">\\n            <bpmn2:incoming>SequenceFlow_0u1pgc6</bpmn2:incoming>\\n            <bpmn2:incoming>SequenceFlow_1lknq96</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_17h8rue</bpmn2:outgoing>\\n        </bpmn2:parallelGateway>\\n\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_1lknq96\\\" sourceRef=\\\"SendAck\\\" targetRef=\\\"WaitForOperation\\\" />\\n        <bpmn2:sequenceFlow id=\\\"SequenceFlow_17h8rue\\\" sourceRef=\\\"WaitForOperation\\\" targetRef=\\\"Switch\\\" />\\n        <bpmn2:scriptTask id=\\\"AcceptPreparation\\\" name=\\\"Подготовка подтверждения регистрации\\\"\\n                          sphera:type=\\\"assignments\\\"\\n                          sphera:assignments=\\\"msg2 = &#34;Уважаемый кандидат в резиденты sphera&#10;&#10;Заявка на регистрацию организации &#34; + title.ru + &#34; принята.&#10;&#10;С уважением,&#10;Администрация sphera&#34;\\\">\\n            <bpmn2:incoming>AcceptFlow</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_0gpxbql</bpmn2:outgoing>\\n        </bpmn2:scriptTask>\\n\\n        <bpmn2:scriptTask id=\\\"RejectPreparation\\\" name=\\\"Подготовка отказа\\\"\\n                          sphera:type=\\\"assignments\\\"\\n                          sphera:assignments=\\\"msg2 = &#34;Уважаемый кандидат в резиденты sphera&#10;&#10;Заявка на регистрацию организации &#34; + title.ru + &#34; отклонена. Причина отказа:&#10;&#34; + rejectReason + &#34; &#10;&#10;С уважением,&#10;Администрация sphera&#34;\\\">\\n            <bpmn2:incoming>RejectFlow</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_1yymhp1</bpmn2:outgoing>\\n        </bpmn2:scriptTask>\\n\\n        <bpmn2:scriptTask id=\\\"AckPreparation\\\" name=\\\"Подготовка подтверждение заполнения анкеты\\\"\\n                          sphera:type=\\\"assignments\\\"\\n                          sphera:assignments=\\\"msg1 = &#34;Уважаемый кандидат в резиденты sphera&#10;&#10;Заявка на регистрацию организации &#34; + title.ru + &#34; получена и будет рассмотрена в течении трёх дней&#10;&#10;С уважением,&#10;Администрация sphera&#34;\\\">\\n            <bpmn2:incoming>SequenceFlow_1a9y6xm</bpmn2:incoming>\\n            <bpmn2:outgoing>SequenceFlow_0lmsjus</bpmn2:outgoing>\\n        </bpmn2:scriptTask>\\n\\n    </bpmn2:process>\\n    <bpmndi:BPMNDiagram id=\\\"BPMNDiagram_1\\\">\\n        <bpmndi:BPMNPlane id=\\\"BPMNPlane_1\\\" bpmnElement=\\\"Process_1\\\">\\n            <bpmndi:BPMNShape id=\\\"_BPMNShape_StartEvent_2\\\" bpmnElement=\\\"Start\\\">\\n                <dc:Bounds x=\\\"144\\\" y=\\\"215\\\" width=\\\"36\\\" height=\\\"36\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"119\\\" y=\\\"251\\\" width=\\\"89\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_0i48jnx_di\\\" bpmnElement=\\\"SequenceFlow_0i48jnx\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"180\\\" y=\\\"233\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"222\\\" y=\\\"233\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"156\\\" y=\\\"211.5\\\" width=\\\"90\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNShape id=\\\"UserTask_1eccoz5_di\\\" bpmnElement=\\\"EnterData\\\">\\n                <dc:Bounds x=\\\"222\\\" y=\\\"193\\\" width=\\\"100\\\" height=\\\"80\\\" />\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNShape id=\\\"ExclusiveGateway_1mfuycw_di\\\" bpmnElement=\\\"Switch\\\" isMarkerVisible=\\\"true\\\">\\n                <dc:Bounds x=\\\"826\\\" y=\\\"207\\\" width=\\\"50\\\" height=\\\"50\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"880\\\" y=\\\"213\\\" width=\\\"70\\\" height=\\\"38\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_1s2y42w_di\\\" bpmnElement=\\\"AcceptFlow\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"851\\\" y=\\\"207\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"851\\\" y=\\\"137\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"930\\\" y=\\\"137\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"832\\\" y=\\\"112\\\" width=\\\"65\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_0g4wuao_di\\\" bpmnElement=\\\"RejectFlow\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"851\\\" y=\\\"257\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"851\\\" y=\\\"321\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"930\\\" y=\\\"321\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"853\\\" y=\\\"326\\\" width=\\\"30\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_1788u5t_di\\\" bpmnElement=\\\"SequenceFlow_1788u5t\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"322\\\" y=\\\"233\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"352\\\" y=\\\"233\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"337\\\" y=\\\"211.5\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNShape id=\\\"ParallelGateway_0c15cuu_di\\\" bpmnElement=\\\"Fork\\\">\\n                <dc:Bounds x=\\\"352\\\" y=\\\"208\\\" width=\\\"50\\\" height=\\\"50\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"350\\\" y=\\\"261\\\" width=\\\"55\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_1a9y6xm_di\\\" bpmnElement=\\\"SequenceFlow_1a9y6xm\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"377\\\" y=\\\"258\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"377\\\" y=\\\"340\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"413\\\" y=\\\"340\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"392\\\" y=\\\"292.5\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_0lmsjus_di\\\" bpmnElement=\\\"SequenceFlow_0lmsjus\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"513\\\" y=\\\"340\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"560\\\" y=\\\"340\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"536.5\\\" y=\\\"318.5\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNShape id=\\\"SendTask_0ypmdyf_di\\\" bpmnElement=\\\"SendAck\\\">\\n                <dc:Bounds x=\\\"560\\\" y=\\\"300\\\" width=\\\"100\\\" height=\\\"80\\\" />\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNShape id=\\\"UserTask_0zvvm1g_di\\\" bpmnElement=\\\"Validation\\\">\\n                <dc:Bounds x=\\\"507\\\" y=\\\"77\\\" width=\\\"100\\\" height=\\\"80\\\" />\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_1oxge9f_di\\\" bpmnElement=\\\"SequenceFlow_1oxge9f\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"377\\\" y=\\\"208\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"377\\\" y=\\\"117\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"507\\\" y=\\\"117\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"392\\\" y=\\\"156\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_0gpxbql_di\\\" bpmnElement=\\\"SequenceFlow_0gpxbql\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1030\\\" y=\\\"137\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1090\\\" y=\\\"137\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"1060\\\" y=\\\"115.5\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNShape id=\\\"SendTask_1rdkmoa_di\\\" bpmnElement=\\\"SendAccept\\\">\\n                <dc:Bounds x=\\\"1090\\\" y=\\\"97\\\" width=\\\"100\\\" height=\\\"80\\\" />\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_1yymhp1_di\\\" bpmnElement=\\\"SequenceFlow_1yymhp1\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1030\\\" y=\\\"321\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1090\\\" y=\\\"321\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"1060\\\" y=\\\"299.5\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNShape id=\\\"SendTask_016qoku_di\\\" bpmnElement=\\\"SendReject\\\">\\n                <dc:Bounds x=\\\"1090\\\" y=\\\"281\\\" width=\\\"100\\\" height=\\\"80\\\" />\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNShape id=\\\"EndEvent_0te66no_di\\\" bpmnElement=\\\"End\\\">\\n                <dc:Bounds x=\\\"1332.5995024875622\\\" y=\\\"214\\\" width=\\\"36\\\" height=\\\"36\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"1320\\\" y=\\\"253\\\" width=\\\"64\\\" height=\\\"25\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_1ldp9mp_di\\\" bpmnElement=\\\"SequenceFlow_1ldp9mp\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1190\\\" y=\\\"321\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1261\\\" y=\\\"321\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1261\\\" y=\\\"232\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1333\\\" y=\\\"232\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"1276\\\" y=\\\"270\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_0hv7c81_di\\\" bpmnElement=\\\"SequenceFlow_0hv7c81\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1190\\\" y=\\\"137\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1261\\\" y=\\\"137\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1261\\\" y=\\\"232\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"1333\\\" y=\\\"232\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"1276\\\" y=\\\"177.5\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_0u1pgc6_di\\\" bpmnElement=\\\"SequenceFlow_0u1pgc6\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"607\\\" y=\\\"117\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"734\\\" y=\\\"117\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"734\\\" y=\\\"209\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"670.5\\\" y=\\\"95.5\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNShape id=\\\"ParallelGateway_1n9hbj9_di\\\" bpmnElement=\\\"WaitForOperation\\\">\\n                <dc:Bounds x=\\\"710\\\" y=\\\"208\\\" width=\\\"50\\\" height=\\\"50\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"700\\\" y=\\\"261\\\" width=\\\"71\\\" height=\\\"25\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_1lknq96_di\\\" bpmnElement=\\\"SequenceFlow_1lknq96\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"660\\\" y=\\\"340\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"735\\\" y=\\\"340\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"735\\\" y=\\\"258\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"697.5\\\" y=\\\"318\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNEdge id=\\\"SequenceFlow_17h8rue_di\\\" bpmnElement=\\\"SequenceFlow_17h8rue\\\">\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"760\\\" y=\\\"233\\\" />\\n                <di:waypoint xsi:type=\\\"dc:Point\\\" x=\\\"826\\\" y=\\\"232\\\" />\\n                <bpmndi:BPMNLabel>\\n                    <dc:Bounds x=\\\"793\\\" y=\\\"211\\\" width=\\\"0\\\" height=\\\"13\\\" />\\n                </bpmndi:BPMNLabel>\\n            </bpmndi:BPMNEdge>\\n            <bpmndi:BPMNShape id=\\\"ScriptTask_0axdhfo_di\\\" bpmnElement=\\\"AcceptPreparation\\\">\\n                <dc:Bounds x=\\\"930\\\" y=\\\"97\\\" width=\\\"100\\\" height=\\\"80\\\" />\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNShape id=\\\"ScriptTask_0cnpe5l_di\\\" bpmnElement=\\\"RejectPreparation\\\">\\n                <dc:Bounds x=\\\"930\\\" y=\\\"281\\\" width=\\\"100\\\" height=\\\"80\\\" />\\n            </bpmndi:BPMNShape>\\n            <bpmndi:BPMNShape id=\\\"ScriptTask_09ysssw_di\\\" bpmnElement=\\\"AckPreparation\\\">\\n                <dc:Bounds x=\\\"413\\\" y=\\\"300\\\" width=\\\"100\\\" height=\\\"80\\\" />\\n            </bpmndi:BPMNShape>\\n        </bpmndi:BPMNPlane>\\n    </bpmndi:BPMNDiagram>\\n</bpmn2:definitions>\",\n  \"dataStructureId\" : \"083502ab-2f29-4b1a-a64c-25453ec86c0f\",\n  \"roleDefinitions\" : {\n    \n  },\n  \"classification\" : {\n    \n  },\n  \"userId\" : \"7fc9ad26-65f2-495c-953f-10d64fcc2dc4\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create process",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"pm.environment.set(\"processId\", jsonData.id);",
+									"pm.environment.set(\"taskId\", \"\");",
+									"",
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/processes",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\" : \"process-11\",\n  \"description\" : \"desc-12\",\n  \"roles\" : {\n    \"i1\" : \"e20597b7-03d7-4416-9cda-031863385fd9\"\n  },\n  \"data\" : {\n    \"elements\" : {\n      \"i3\" : \"strA\",\n      \"i5\" : 1000,\n      \"i9\" : true\n    }\n  },\n  \"managerId\" : \"93a853b5-1b9e-4253-83ea-7420fae5c3d0\",\n  \"templateId\" : \"65deddb9-078f-4620-8159-ad7f98683144\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Start process",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/processes/{{processId}}/start",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get taskId of created task",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"pm.environment.set(\"taskId\", jsonData[jsonData.length-1].id);",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"setTimeout(function () {}, 1000);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/tasks",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get task info",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/tasks/{{taskId}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get task extended info",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/tasks/{{taskId}}/extendedInfo",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get task status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/tasks/{{taskId}}/status",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update task data [Form EnterData]",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/tasks/{{taskId}}/data",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"elements\" : {\n        \"email\" : \"davidkantemirov91@gmail.com\",\n        \"employees\" : 10,\n        \"title.en\" : \"Limited company \\\"Sphera\\\"\",\n        \"company\" : \"Ltd Sphera\",\n        \"title.ru\" : \"Общество с ограниченной ответственностью \\\"Sphera\\\"\",\n        \"phone\" : \"+79166688057\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Complete task [From EnterData]",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/tasks/{{taskId}}/complete",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get taskId of created task",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"pm.environment.set(\"taskId\", jsonData[jsonData.length-1].id);",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"setTimeout(function () {}, 1000);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/tasks",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update task data [Form Validation]",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/tasks/{{taskId}}/data",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"elements\" : {\n        \"approved\" : false,\n        \"rejectReason\" : \"Отказ в регистрации\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Complete task [From Validation]",
+					"request": {
+						"url": "http://localhost:9000/bpm/api/tasks/{{taskId}}/complete",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete dataStructure [secretary]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/masterData/dataStructures/36f0fc74-5145-47f0-b827-d0bf4af4b4ef",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete dataStructure [users]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/masterData/dataStructures/de0a964d-f6b1-4476-8332-c9abf9a205e1",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete dataStructure [files]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/masterData/dataStructures/50bde825-671c-4dea-a7ed-04a063483592",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete dataStructure [title]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/masterData/dataStructures/0f830483-51bc-4e9a-822e-d33d53ea1c73",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete dataStructure [Form EnterData]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/masterData/dataStructures/32c900c2-c00e-48a8-9edd-6e205fda1117",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete dataStructure [Form Validation]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/masterData/dataStructures/6ba8aad7-9008-4662-aa58-a472a92d6184",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete dataStructure [Process]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/masterData/dataStructures/083502ab-2f29-4b1a-a64c-25453ec86c0f",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete formTemplate [Form EnterData]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/masterData/formTemplates/32c900c2-c00e-48a8-9edd-6e205fda1117",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete formTemplate [Form Validation]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/masterData/formTemplates/6ba8aad7-9008-4662-aa58-a472a92d6184",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete processTemplate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:9000/bpm/api/masterData/processTemplates/65deddb9-078f-4620-8159-ad7f98683144",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Token",
+								"value": "::OXY:BPM:EN"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"url": "http://localhost:9000/auth/api/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"login\":\"sphera\",\"password\":\"abc\",\"rememberMe\":false,\"selectTenant\":false}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,52 @@
+syntax = "proto2";
+
+package bpm;
+
+option java_package = "sphera.bpm.serializer.proto";
+
+message BpmExceptionV1 {
+    oneof BpmException_oneof {
+        UnknownExceptionV1 opt1 = 1;
+        EntityNotFoundExceptionV1 opt2 = 2;
+        EntityAlreadyExistsExceptionV1 opt3 = 3;
+        DefinitionsTreeExceptionV1 opt4 = 4;
+        DataConsistencyExceptionV1 opt5 = 5;
+        OperationExceptionV1 opt6 = 6;
+        SetVarExceptionV1 opt7 = 7;
+    }
+}
+
+message UnknownExceptionV1 {
+    required string message = 1;
+}
+
+message EntityNotFoundExceptionV1 {
+    required string entityId = 1;
+    required int32 entityType = 2;
+}
+
+message EntityAlreadyExistsExceptionV1 {
+    required string entityId = 1;
+    required int32 entityType = 2;
+}
+
+message DefinitionsTreeExceptionV1 {
+    required string path = 1;
+}
+
+message DataConsistencyExceptionV1 {
+    required string path = 2;
+}
+
+message OperationExceptionV1 {
+    required string dateTime = 1;
+    required string operationId = 2;
+    required string operationBpmId = 3;
+    required string operationName = 4;
+    optional BpmExceptionV1 cause = 5;
+}
+
+message SetVarExceptionV1 {
+    required string dateTime = 1;
+    optional BpmExceptionV1 cause = 2;
+}

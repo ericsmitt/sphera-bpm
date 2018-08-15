@@ -1,0 +1,46 @@
+syntax = "proto2";
+
+package bpm;
+
+option java_package = "sphera.bpm.serializer.proto";
+
+message DefinitionsV1 {
+    map<string, AnySimpleDefinitionV1> repr = 1;
+}
+
+message AnySimpleDefinitionV1 {
+    oneof AnySimpleDefinition_oneof {
+        StringDefinitionV1 opt1 = 1;
+        IntDefinitionV1 opt2 = 2;
+        BooleanDefinitionV1 opt3 = 3;
+        DecimalDefinitionV1 opt4 = 4;
+    }
+}
+
+message StringDefinitionV1 {
+    required string name = 1;
+    optional string description = 2;
+    required string value = 3;
+    required string path = 4;
+}
+
+message IntDefinitionV1 {
+    required string name = 1;
+    optional string description = 2;
+    required int32 value = 3;
+    required string path = 4;
+}
+
+message BooleanDefinitionV1 {
+    required string name = 1;
+    optional string description = 2;
+    required bool value = 3;
+    required string path = 4;
+}
+
+message DecimalDefinitionV1 {
+    required string name = 1;
+    optional string description = 2;
+    required string value = 3;
+    required string path = 4;
+}

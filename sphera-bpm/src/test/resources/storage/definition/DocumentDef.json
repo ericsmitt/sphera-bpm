@@ -1,0 +1,279 @@
+{
+  "value": {
+    "phone": {
+      "name": "updated",
+      "description": "updated",
+      "value": "updated",
+      "path": "phone",
+      "type": "string"
+    },
+    "approved": {
+      "name": "updated",
+      "description": "updated",
+      "value": false,
+      "path": "approved",
+      "type": "boolean"
+    },
+    "changeable": {
+      "name": "updated",
+      "description": "updated",
+      "value": true,
+      "path": "changeable",
+      "type": "boolean"
+    },
+    "title": {
+      "value": {
+        "en": {
+          "name": "en",
+          "description": "updated",
+          "value": "Title",
+          "path": "title.en",
+          "type": "string"
+        },
+        "ru": {
+          "name": "ru",
+          "description": "updated",
+          "value": "Название",
+          "path": "title.ru",
+          "type": "string"
+        }
+      },
+      "name": "title",
+      "description": "updated",
+      "path": "title",
+      "type": "MLString"
+    },
+    "subject2": {
+      "name": "subject2",
+      "description": "updated",
+      "value": "Подтверждение регистрации",
+      "path": "subject2",
+      "type": "string"
+    },
+    "msg1": {
+      "name": "msg1",
+      "description": "updated",
+      "value": "updated",
+      "path": "msg1",
+      "type": "string"
+    },
+    "comment": {
+      "name": "comment",
+      "description": "updated",
+      "value": "comment",
+      "path": "comment",
+      "type": "string"
+    },
+    "roles": {
+      "name": "roles",
+      "description": "Process roles",
+      "value": {
+        "resident": {
+          "name": "resident",
+          "description": "Resident group",
+          "value": {
+            "checkingUser": {
+              "name": "checkingUser",
+              "description": "Resident checking user",
+              "value": "77501df8-7312-4518-9045-ff95039241b2",
+              "path": "roles.resident.checkingUser",
+              "type": "role"
+            },
+            "candidate": {
+              "name": "candidate",
+              "description": "Candidate",
+              "value": "2b1494e3-da15-4bdb-9144-1a29a5d551a3",
+              "path": "roles.resident.candidate",
+              "type": "role"
+            }
+          },
+          "path": "roles.resident",
+          "type": "roleGroup"
+        }
+      },
+      "path": "roles",
+      "type": "roles"
+    },
+    "subject1": {
+      "name": "subject1",
+      "description": "updated",
+      "value": "Регистрация",
+      "path": "subject1",
+      "type": "string"
+    },
+    "company": {
+      "name": "company",
+      "description": "updated",
+      "value": "updated",
+      "path": "company",
+      "type": "string"
+    },
+    "files": {
+      "value": {
+        "reportD": {
+          "name": "updated",
+          "description": "updated",
+          "value": "calg2v1s.docx",
+          "path": "files.reportD",
+          "type": "string"
+        },
+        "reportC": {
+          "name": "updated",
+          "description": "updated",
+          "value": "vjhyhz7r.docx",
+          "path": "files.reportC",
+          "type": "string"
+        },
+        "reportB": {
+          "name": "updated",
+          "description": "updated",
+          "value": "buopuil8.docx",
+          "path": "files.reportB",
+          "type": "string"
+        },
+        "reportA": {
+          "name": "updated",
+          "description": "updated",
+          "value": "wh2zlegc.docx",
+          "path": "files.reportA",
+          "type": "string"
+        }
+      },
+      "name": "files",
+      "description": "updated",
+      "mutable": false,
+      "path": "files",
+      "type": "object"
+    },
+    "employees": {
+      "name": "employees",
+      "description": "updated",
+      "value": 10,
+      "path": "employees",
+      "type": "decimal"
+    },
+    "users": {
+      "name": "users",
+      "description": "updated",
+      "value": {
+        "6de4e1c7-0a28-4a98-ae75-db02ef76ea0b": {
+          "value": {
+            "phone": {
+              "name": "updated",
+              "description": "updated",
+              "value": "updated",
+              "path": "6de4e1c7-0a28-4a98-ae75-db02ef76ea0b.phone",
+              "type": "string"
+            },
+            "lastname": {
+              "name": "updated",
+              "description": "updated",
+              "value": "updated",
+              "path": "6de4e1c7-0a28-4a98-ae75-db02ef76ea0b.lastname",
+              "type": "string"
+            },
+            "middlename": {
+              "name": "updated",
+              "description": "updated",
+              "value": "updated",
+              "path": "6de4e1c7-0a28-4a98-ae75-db02ef76ea0b.middlename",
+              "type": "string"
+            },
+            "firstname": {
+              "name": "updated",
+              "description": "updated",
+              "value": "updated",
+              "path": "6de4e1c7-0a28-4a98-ae75-db02ef76ea0b.firstname",
+              "type": "string"
+            },
+            "email": {
+              "name": "updated",
+              "description": "updated",
+              "value": "updated",
+              "path": "6de4e1c7-0a28-4a98-ae75-db02ef76ea0b.email",
+              "type": "string"
+            }
+          },
+          "name": "updated",
+          "description": "updated",
+          "mutable": false,
+          "path": "6de4e1c7-0a28-4a98-ae75-db02ef76ea0b",
+          "type": "object"
+        }
+      },
+      "mutable": true,
+      "path": "users",
+      "type": "object"
+    },
+    "msg2": {
+      "name": "msg2",
+      "description": "updated",
+      "value": "updated",
+      "path": "msg2",
+      "type": "string"
+    },
+    "email": {
+      "name": "email",
+      "description": "updated",
+      "value": "updated",
+      "path": "email",
+      "type": "string"
+    },
+    "rejectReason": {
+      "name": "rejectReason",
+      "description": "updated",
+      "value": "updated",
+      "path": "rejectReason",
+      "type": "string"
+    },
+    "secretary": {
+      "value": {
+        "changeable": {
+          "name": "changeable",
+          "description": "updated",
+          "value": true,
+          "path": "secretary.changeable",
+          "type": "boolean"
+        },
+        "fullname": {
+          "name": "fullname",
+          "description": "updated",
+          "value": "updated",
+          "path": "secretary.fullname",
+          "type": "string"
+        },
+        "lastname": {
+          "name": "lastname",
+          "description": "updated",
+          "value": "Duberg",
+          "path": "secretary.lastname",
+          "type": "string"
+        },
+        "middlename": {
+          "name": "middlename",
+          "description": "updated",
+          "value": "A.",
+          "path": "secretary.middlename",
+          "type": "string"
+        },
+        "firstname": {
+          "name": "firstname",
+          "description": "updated",
+          "value": "Mark",
+          "path": "secretary.firstname",
+          "type": "string"
+        }
+      },
+      "name": "secretary",
+      "description": "updated",
+      "mutable": false,
+      "path": "secretary",
+      "type": "object"
+    }
+  },
+  "name": "root",
+  "description": "root",
+  "mutable": false,
+  "path": "",
+  "type": "root"
+}

@@ -1,0 +1,20 @@
+<configuration>
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{mm:ss.SSS} %-5level [%X{akkaSource}] - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="ASYNCSTDOUT" class="ch.qos.logback.classic.AsyncAppender">
+    <appender-ref ref="STDOUT" />
+  </appender>
+
+  <logger name="akka.event.slf4j" level="WARN"/>
+  <logger name="sphera.bpm.masterdata.actor.MasterDataManagerActor" level="OFF"/>
+  <logger name="sphera.bpm.notification.actor.NotificationManagerActor" level="OFF"/>
+  <logger name="ch.qos.logback" level="OFF"/>
+
+  <root level="INFO">
+    <appender-ref ref="ASYNCSTDOUT"/>
+  </root>
+</configuration>

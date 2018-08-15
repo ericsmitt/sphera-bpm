@@ -1,0 +1,66 @@
+syntax = "proto2";
+
+import "exceptions.proto";
+import "definition.proto";
+import "model.proto";
+
+package bpm;
+
+option java_package = "sphera.bpm.serializer.proto";
+
+message ProjectManagerStateV1 {
+    map<string, ProjectInfoV1> v = 1;
+}
+
+message CreatedProjectInfoEvtV1 {
+    required ProjectInfoV1 x = 1;
+}
+
+message UpdatedProjectInfoEvtV1 {
+    required UpdateProjectInfoV1 x = 1;
+    required ModifierV1 modifier = 2;
+}
+
+message DeletedProjectInfoEvtV1 {
+    required string projectId = 1;
+}
+
+message ProjectStateV1 {
+    required ProjectDefinitionV1 projectDefinition = 1;
+    map<string, RoleDefinitionV1> roleDefinitions = 2;
+    required DefinitionsV1 definitions = 3;
+    repeated string activeProcesses = 4;
+    repeated BpmExceptionV1 exceptions = 5;
+}
+
+message ProjectDefinitionV1 {
+    map<string, RoleDefinitionV1> roleDefinitions = 1;
+    required DefinitionsV1 definitions = 2;
+}
+
+message ProjectInfoV1 {
+    required string id = 1;
+    required string name = 2;
+    optional string description = 3;
+    required int32 status = 4;
+    required string templateId = 5;
+    required string managerId = 6;
+    optional ModifierV1 startedBy = 7;
+    optional string startedOn = 8;
+    required ModifyAttrV1 modifyAttr = 9;
+}
+
+message UpdateProjectInfoV1 {
+    required string id = 1;
+    optional string name = 2;
+    optional string description = 3;
+    optional int32 status = 4;
+    optional string managerId = 5;
+    optional ModifierV1 startedBy = 6;
+    optional string startedOn = 7;
+}
+
+message ProjectExtendedInfoV1 {
+    required ProjectInfoV1 info = 1;
+    required ProjectStateV1 state = 2;
+}

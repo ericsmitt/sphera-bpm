@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.11.2">
+  <bpmn:process id="Process_1" name="Начало" isExecutable="true">
+    <bpmn:startEvent id="Start" name="Начало">
+      <bpmn:outgoing>SequenceFlow_1rbptdk</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="End" name="Конец">
+      <bpmn:incoming>SequenceFlow_1rbptdk</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1rbptdk" sourceRef="Start" targetRef="End" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="Start">
+        <dc:Bounds x="18" y="46" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="16" y="82" width="41" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1xucplh_di" bpmnElement="End">
+        <dc:Bounds x="413" y="63" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="415" y="103" width="33" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1rbptdk_di" bpmnElement="SequenceFlow_1rbptdk">
+        <di:waypoint xsi:type="dc:Point" x="54" y="64" />
+        <di:waypoint xsi:type="dc:Point" x="244" y="64" />
+        <di:waypoint xsi:type="dc:Point" x="244" y="81" />
+        <di:waypoint xsi:type="dc:Point" x="413" y="81" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="259" y="66.5" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

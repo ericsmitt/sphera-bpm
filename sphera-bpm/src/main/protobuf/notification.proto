@@ -1,0 +1,41 @@
+syntax = "proto2";
+
+package imc;
+
+option java_package = "sphera.bpm.serializer.proto";
+
+message SmsVerificationStateV1 {
+    map<string, SmsVerificationV1> v = 1;
+}
+
+message SmsNotificationVerificationV1 {
+    required string id = 1;
+    required string phone = 2;
+    required string subject = 3;
+    required string message = 4;
+    required string code = 5;
+    required int32 retry = 6;
+}
+
+message SmsNotificationMessageV1 {
+    required string id = 1;
+    required string phone = 2;
+    required string subject = 3;
+    required string message = 4;
+    required int32 retry = 5;
+}
+
+message SmsVerificationV1 {
+    required string id = 1;
+    required SmsNotificationVerificationV1 notification = 2;
+    required int64 duration = 3;
+}
+
+message CreatedVerificationEvtV1 {
+    required SmsVerificationV1 x = 1;
+}
+
+message DeletedVerificationEvtV1 {
+    required string verificationId = 1;
+}
+

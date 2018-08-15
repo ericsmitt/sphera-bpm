@@ -1,0 +1,274 @@
+{
+  "value" : {
+    "company" : {
+      "name" : "updated",
+      "value" : "Ltd Sphera",
+      "description" : null,
+      "path" : "company",
+      "type" : "string"
+    },
+    "secretary" : {
+      "description" : "updated",
+      "value" : {
+        "changeable" : {
+          "value" : false,
+          "name" : "changeable",
+          "description" : null,
+          "path" : "secretary.changeable",
+          "type" : "boolean"
+        },
+        "fullname" : {
+          "name" : "fullname",
+          "description" : null,
+          "value" : "",
+          "path" : "secretary.fullname",
+          "type" : "string"
+        },
+        "lastname" : {
+          "name" : "lastname",
+          "description" : null,
+          "value" : "Duberg",
+          "path" : "secretary.lastname",
+          "type" : "string"
+        },
+        "middlename" : {
+          "name" : "middlename",
+          "description" : null,
+          "value" : "A.",
+          "path" : "secretary.middlename",
+          "type" : "string"
+        },
+        "firstname" : {
+          "name" : "firstname",
+          "description" : null,
+          "value" : "Mark",
+          "path" : "secretary.firstname",
+          "type" : "string"
+        }
+      },
+      "name" : "secretary",
+      "path" : "secretary",
+      "type" : "object"
+    },
+    "phone" : {
+      "name" : "phone",
+      "description" : null,
+      "value" : "+79166610067",
+      "path" : "phone",
+      "type" : "string"
+    },
+    "approved" : {
+      "name" : "approved",
+      "description" : null,
+      "value" : false,
+      "path" : "approved",
+      "type" : "boolean"
+    },
+    "changeable" : {
+      "name" : "changeable",
+      "description" : null,
+      "value" : true,
+      "path" : "changeable",
+      "type" : "boolean"
+    },
+    "title" : {
+      "value" : {
+        "en" : {
+          "name" : "en",
+          "description" : null,
+          "value" : "Limited company \"Sphera\"",
+          "path" : "title.en",
+          "type" : "string"
+        },
+        "ru" : {
+          "name" : "ru",
+          "description" : null,
+          "value" : "Общество с ограниченной ответственностью \"Sphera\"",
+          "path" : "title.ru",
+          "type" : "string"
+        }
+      },
+      "name" : "title",
+      "description" : null,
+      "path" : "title",
+      "type" : "MLString"
+    },
+    "subject2" : {
+      "name" : "subject2",
+      "description" : null,
+      "value" : "Подтверждение регистрации",
+      "path" : "subject2",
+      "type" : "string"
+    },
+    "msg1" : {
+      "name" : "msg1",
+      "description" : null,
+      "value" : "Заявка на регистрацию организацииОбщество с ограниченной ответственностью \"Sphera\"получена и будет рассмотрена в течении трёх дней.",
+      "path" : "msg1",
+      "type" : "string"
+    },
+    "comment" : {
+      "name" : "comment",
+      "description" : null,
+      "value" : "comment",
+      "path" : "comment",
+      "type" : "string"
+    },
+    "roles" : {
+      "name" : "roles",
+      "description" : "Process roles",
+      "value" : [
+        {
+          "name" : "admin",
+          "description" : "Administrators group",
+          "value" : [
+            {
+              "name" : "admin1",
+              "description" : "Administrator",
+              "value" : "63b06570-997a-4704-a431-10c2738d3ee4",
+              "path" : "roles.admin.admin1",
+              "type" : "role"
+            },
+            {
+              "name" : "admin2",
+              "description" : "Administrator",
+              "value" : "f4bf1ae5-df91-4fa8-93a8-d162c83b310b",
+              "path" : "roles.admin.admin2",
+              "type" : "role"
+            }
+          ],
+          "path" : "roles.admin",
+          "type" : "roleGroup"
+        }
+      ],
+      "path" : "roles",
+      "type" : "roles"
+    },
+    "subject1" : {
+      "name" : "subject1",
+      "description" : null,
+      "value" : "Регистрация",
+      "path" : "subject1",
+      "type" : "string"
+    },
+    "files" : {
+      "value" : {
+        "reportD" : {
+          "name" : "reportD",
+          "description" : null,
+          "value" : "cnp2r0ra.docx",
+          "path" : "files.reportD",
+          "type" : "string"
+        },
+        "reportC" : {
+          "name" : "reportC",
+          "description" : null,
+          "value" : "3akwirio.docx",
+          "path" : "files.reportC",
+          "type" : "string"
+        },
+        "reportB" : {
+          "name" : "reportB",
+          "description" : null,
+          "value" : "evfnga8n.docx",
+          "path" : "files.reportB",
+          "type" : "string"
+        },
+        "reportA" : {
+          "name" : "reportA",
+          "description" : null,
+          "value" : "cihhjz0w.docx",
+          "path" : "files.reportA",
+          "type" : "string"
+        }
+      },
+      "name" : "files",
+      "description" : null,
+      "path" : "files",
+      "type" : "object"
+    },
+    "employees" : {
+      "name" : "employees",
+      "description" : null,
+      "value" : 10,
+      "path" : "employees",
+      "type" : "decimal"
+    },
+    "users" : {
+      "value" : {
+        "6de4e1c7-0a28-4a98-ae75-db02ef76ea0b" : {
+          "value" : {
+            "phone" : {
+              "name" : "phone",
+              "description" : null,
+              "value" : "",
+              "path" : "users.6de4e1c7-0a28-4a98-ae75-db02ef76ea0b.phone",
+              "type" : "string"
+            },
+            "lastname" : {
+              "name" : "lastname",
+              "description" : null,
+              "value" : "",
+              "path" : "users.6de4e1c7-0a28-4a98-ae75-db02ef76ea0b.lastname",
+              "type" : "string"
+            },
+            "middlename" : {
+              "name" : "middlename",
+              "description" : null,
+              "value" : "",
+              "path" : "users.6de4e1c7-0a28-4a98-ae75-db02ef76ea0b.middlename",
+              "type" : "string"
+            },
+            "firstname" : {
+              "name" : "firstname",
+              "description" : null,
+              "value" : "",
+              "path" : "users.6de4e1c7-0a28-4a98-ae75-db02ef76ea0b.firstname",
+              "type" : "string"
+            },
+            "email" : {
+              "name" : "email",
+              "description" : null,
+              "value" : "",
+              "path" : "users.6de4e1c7-0a28-4a98-ae75-db02ef76ea0b.email",
+              "type" : "string"
+            }
+          },
+          "name" : "6de4e1c7-0a28-4a98-ae75-db02ef76ea0b",
+          "description" : null,
+          "path" : "users.6de4e1c7-0a28-4a98-ae75-db02ef76ea0b",
+          "type" : "object"
+        }
+      },
+      "name" : "users",
+      "description" : null,
+      "path" : "users",
+      "type" : "object"
+    },
+    "msg2" : {
+      "name" : "msg2",
+      "description" : null,
+      "value" : "",
+      "path" : "msg2",
+      "type" : "string"
+    },
+    "email" : {
+      "name" : "email",
+      "description" : null,
+      "value" : "it@kantemirov.ru",
+      "path" : "email",
+      "type" : "string"
+    },
+    "rejectReason" : {
+      "name" : "rejectReason",
+      "description" : null,
+      "value" : "",
+      "path" : "rejectReason",
+      "type" : "string"
+    }
+  },
+  "name" : "root",
+  "description" : "root",
+  "path" : "root",
+  "type" : "root"
+}

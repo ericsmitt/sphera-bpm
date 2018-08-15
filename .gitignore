@@ -1,0 +1,11 @@
+*.log
+*lock.json
+.idea/
+target/
+dist/
+node_modules/
+*i18n/
+tools/gen/
+buildinfo.properties
+project/project/
+

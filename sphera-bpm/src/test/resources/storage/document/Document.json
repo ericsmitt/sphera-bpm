@@ -1,0 +1,68 @@
+{
+  "secretary": {
+    "firstname": "Mark",
+    "middlename": "A.",
+    "lastname": "Duberg",
+    "fullname": "",
+    "changeable": false
+  },
+  "rejectReason": "",
+  "email": "jqxqrztyasaw@vzxfv.ru",
+  "msg2": "",
+  "users": {
+    "6de4e1c7-0a28-4a98-ae75-db02ef76ea0b": {
+      "email": "",
+      "firstname": "frwusro4aj",
+      "middlename": "",
+      "age": 45,
+      "lastname": "ix89ulabxz",
+      "phone": "+79166620933"
+    },
+    "6de4e1c7-0a28-4a98-ae75-db02ef76ea1b" : {
+      "email" : "",
+      "firstname" : "nfdqbnf0gf",
+      "middlename" : "",
+      "age" : 31,
+      "lastname" : "mddelhmdmx",
+      "phone" : "+79166659130"
+    },
+    "6de4e1c7-0a28-4a98-ae75-db02ef76ea2b" : {
+      "email" : "",
+      "firstname" : "bzv6z5ykmt",
+      "middlename" : "",
+      "age" : 21,
+      "lastname" : "2mrllcnvlp",
+      "phone" : "+79166610660"
+    }
+  },
+  "employees": 15,
+  "files": {
+    "reportD": "cl3ugzfa1.docx",
+    "reportC": "3chovi9l1.docx",
+    "reportB": "pm5qivpo1.docx",
+    "reportA": "tnijonso1.docx"
+  },
+  "company": "",
+  "subject1": "Регистрация",
+  "roles": {
+    "resident": {
+      "checkingUser": "e281a77c-32a2-4c2b-8519-946247ad77e1",
+      "candidate": "c8e8166d-1e13-4e3e-a140-68c7c1c094a1"
+    },
+    "manager": {
+      "account": "e281a77c-32a2-4c2b-8519-946247ad77e1",
+      "finance": "c8e8166d-1e13-4e3e-a140-68c7c1c094a1"
+    }
+  },
+  "comment": "comment1",
+  "msg1": "",
+  "subject2": "Подтверждение регистрации",
+  "title": {
+    "ru": "Название",
+    "en": "Title1",
+    "es": "Spain"
+  },
+  "changeable": true,
+  "approved": false,
+  "phone": "+79163333331"
+}
